@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.wrbug.developerhelper.ui.activity.guide.GuideActivity">
+    <item
+        android:id="@+id/about_menu"
+        android:title="@string/about"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/exit_menu"
+        android:title="@string/exit"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@drawable/a_gt_perf_tag_list_item_border" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="0.0dip" android:layout_marginRight="10.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListView android:id="@id/plugin_list" android:layout_width="fill_parent" android:layout_height="wrap_content" android:cacheColorHint="@drawable/sortable_bottom_gray" android:divider="@drawable/btn_gray" android:dividerHeight="1.0dip" />
+</FrameLayout>

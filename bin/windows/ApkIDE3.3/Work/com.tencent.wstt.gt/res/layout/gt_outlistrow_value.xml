@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/draglist_item_bottom" android:background="@drawable/a_gt_sortable_bottom" android:layout_width="fill_parent" android:layout_height="52.0dip" />
+    <TextView android:id="@id/listrow_top_border" android:background="#ff3c3c42" android:layout_width="fill_parent" android:layout_height="2.0dip" />
+    <TextView android:id="@id/listrow_left_border" android:background="#ff3c3c42" android:layout_width="2.0dip" android:layout_height="52.0dip" android:layout_alignParentLeft="true" />
+    <TextView android:id="@id/listrow_right_border" android:background="#ff3c3c42" android:layout_width="2.0dip" android:layout_height="52.0dip" android:layout_alignParentRight="true" />
+    <RelativeLayout android:id="@id/rl_drag_img" android:layout_width="72.0dip" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:layout_toLeftOf="@id/listrow_right_border" android:layout_centerVertical="true">
+        <TextView android:textSize="15.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/data_flag" android:background="@drawable/textview_his_shape" android:paddingLeft="2.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginRight="4.0dip" android:text="@string/sss1" android:layout_toLeftOf="@id/cb_tick" android:layout_alignParentLeft="true" />
+        <CheckBox android:gravity="right" android:id="@id/cb_tick" android:focusable="false" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/rl_drag_key_value" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toRightOf="@id/listrow_left_border" android:layout_below="@id/listrow_top_border">
+        <TextView android:id="@id/listrow_bg" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="50.0dip" />
+        <TextView android:textSize="14.0sp" android:textColor="#ffb7bdcf" android:gravity="bottom" android:id="@id/draglist_shotkey" android:layout_width="58.0dip" android:layout_height="30.0dip" android:layout_marginLeft="8.0dip" android:text="@string/sKey" android:singleLine="true" android:layout_alignParentTop="true" />
+        <TextView android:textSize="14.0sp" android:textColor="#ffb7bdcf" android:ellipsize="middle" android:gravity="bottom" android:id="@id/draglist_key" android:layout_width="150.0dip" android:layout_height="30.0dip" android:text="@string/Key" android:singleLine="true" android:layout_toRightOf="@id/draglist_shotkey" />
+        <TextView android:textSize="10.0sp" android:textColor="#ffb7bdcf" android:gravity="top" android:id="@id/draglist_value" android:layout_width="208.0dip" android:layout_height="20.0dip" android:layout_marginLeft="8.0dip" android:text="@string/value" android:singleLine="true" android:layout_below="@id/draglist_shotkey" />
+    </RelativeLayout>
+    <TextView android:layout_gravity="bottom" android:id="@id/listrow_bottom_border" android:background="#ff3c3c42" android:layout_width="fill_parent" android:layout_height="2.0dip" android:layout_below="@id/rl_drag_key_value" />
+</RelativeLayout>

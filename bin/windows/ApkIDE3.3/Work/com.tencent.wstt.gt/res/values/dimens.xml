@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_xsmall">8.0px</dimen>
+    <dimen name="text_size_small">10.0px</dimen>
+    <dimen name="text_size_medium">12.0px</dimen>
+    <dimen name="text_size_large">14.0px</dimen>
+    <dimen name="text_size_xlarge">16.0px</dimen>
+    <dimen name="dialog_width">280.0dip</dimen>
+    <dimen name="dialog_body_height">80.0dip</dimen>
+    <dimen name="dialog_content_margin">5.0dip</dimen>
+    <item type="dimen" name="setup_title_height">14.999998%</item>
+    <item type="dimen" name="setup_border_width">4.999995%</item>
+    <dimen name="divider_height">3.0dip</dimen>
+    <dimen name="divider_margin_top">6.0dip</dimen>
+    <dimen name="divider_margin_bottom">7.0dip</dimen>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="339.0dip" android:layout_height="fill_parent" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:textColor="#ff878c98" android:gravity="left|center" android:id="@id/draglist_title" android:layout_width="339.0dip" android:layout_height="48.0dip" android:layout_marginLeft="8.0dip" />
+</FrameLayout>

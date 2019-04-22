@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="drawable" name="transparent">#e6000000</item>
+    <item type="drawable" name="text_title_gray">#ff878c98</item>
+    <item type="drawable" name="text_content_gray">#ffb7bdcf</item>
+    <item type="drawable" name="area_title_orange">#ffdd843f</item>
+    <item type="drawable" name="white">#ffffffff</item>
+    <item type="drawable" name="black">#ff000000</item>
+    <item type="drawable" name="selected_Blue">#ff3c4a76</item>
+    <item type="drawable" name="bottom_gray">#ff3c3c42</item>
+    <item type="drawable" name="bottom_line_gray">#ff1f1f22</item>
+    <item type="drawable" name="sortable_bottom_gray">#ff29292d</item>
+    <item type="drawable" name="top_line_gray">#ff35353b</item>
+    <item type="drawable" name="btn_gray">#ff35353b</item>
+    <item type="drawable" name="text_green">#ff38ad29</item>
+    <item type="drawable" name="text_bluegreen">#ff607d8b</item>
+    <item type="drawable" name="text_hint_gray">#ff616676</item>
+</resources>

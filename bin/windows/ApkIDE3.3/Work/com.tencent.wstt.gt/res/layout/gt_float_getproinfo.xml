@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="155.0dip" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textColor="#ffffffff" android:gravity="center" android:id="@id/show_info" android:background="@drawable/memfloatview" android:layout_width="155.0dip" android:layout_height="wrap_content" android:text="@string/HeapSize" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="155.0dip" android:layout_height="35.0dip">
+        <TextView android:textColor="#ffffffff" android:gravity="center" android:id="@id/tv_dump" android:background="@drawable/memfloatview" android:layout_width="fill_parent" android:layout_height="35.0dip" android:text="@string/Dump" android:layout_weight="1.0" />
+        <TextView android:textColor="#ffffffff" android:gravity="center" android:id="@id/tv_GC" android:background="@drawable/memfloatview" android:layout_width="fill_parent" android:layout_height="35.0dip" android:text="@string/GC" android:layout_weight="1.0" />
+    </LinearLayout>
+    <TextView android:textColor="#ffffffff" android:gravity="center" android:id="@id/tv_mobile" android:background="@drawable/memfloatview" android:layout_width="fill_parent" android:layout_height="35.0dip" android:text="@string/Refresh" />
+</LinearLayout>

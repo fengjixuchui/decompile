@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:dslv="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:background="#ff29292d" android:layout_width="fill_parent" android:layout_height="60.0dip">
+        <TextView android:textSize="16.0sp" android:textColor="#ffcb7418" android:gravity="center_vertical" android:layout_gravity="left" android:layout_width="wrap_content" android:layout_height="60.0dip" android:text="@string/para_in_list_title" />
+        <TextView android:textSize="16.0sp" android:textColor="#ffcb7418" android:gravity="center_vertical" android:layout_gravity="right" android:id="@id/para_top_drag" android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_marginTop="15.0dip" android:layout_marginRight="20.0dip" android:text="@string/para_top_drag" />
+    </FrameLayout>
+    <com.mobeta.android.dslv.DragSortListView android:layout_gravity="center" android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_margin="10.0dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="8.0dip" android:layout_marginRight="10.0dip" android:layout_weight="1.0" dslv:collapsed_height="2.0dip" dslv:drag_scroll_start="0.33" dslv:max_drag_scroll_speed="0.5" dslv:remove_mode="flingRemove" dslv:track_drag_sort="false" dslv:float_alpha="0.6" dslv:slide_shuffle_speed="0.3" dslv:drag_enabled="true" dslv:sort_enabled="true" dslv:remove_enabled="false" dslv:drag_start_mode="onDown" dslv:drag_handle_id="@id/drag_handle" dslv:use_default_controller="true" />
+</LinearLayout>

@@ -1,0 +1,3 @@
+ECHO.　　正在反编译中...
+@echo off
+java -jar apktool.jar d %~nx1 -o %~n1

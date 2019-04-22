@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="translucent" parent="@android:style/Theme.Holo">
+        <item name="android:windowBackground">@drawable/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+    <style name="translucentWithTitle" parent="@style/translucent">
+        <item name="android:windowBackground">@drawable/transparent</item>
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+    <style name="Dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/dialog_window_bg</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">@dimen/dialog_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">20.0dip</item>
+        <item name="android:layout_marginBottom">15.0dip</item>
+        <item name="android:maxHeight">@dimen/dialog_width</item>
+        <item name="android:minWidth">@dimen/dialog_width</item>
+    </style>
+    <style name="Button">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@drawable/button_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">12.0dip</item>
+        <item name="android:paddingTop">7.0dip</item>
+        <item name="android:paddingRight">12.0dip</item>
+        <item name="android:paddingBottom">7.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="DialogButton" parent="@style/Button">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/button_text_blue</item>
+        <item name="android:padding">4.0dip</item>
+        <item name="android:minWidth">100.0dip</item>
+    </style>
+</resources>

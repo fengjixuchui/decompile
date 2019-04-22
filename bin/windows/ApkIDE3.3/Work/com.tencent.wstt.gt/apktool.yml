@@ -1,0 +1,24 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: GT_2.2.6.2.apk
+compressionType: false
+doNotCompress:
+- arsc
+- PNG
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '14'
+  targetSdkVersion: '23'
+sharedLibrary: false
+unknownFiles:
+  com/tencent/wstt/gt/receiver/UseGtWithBroadcast.txt: '8'
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.1.0
+versionInfo:
+  versionCode: '22062'
+  versionName: 2.2.6.2

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="orange">#ffff9900</color>
+    <color name="red">#ffff0000</color>
+    <color name="page_dark_bg">#ffe7e7e7</color>
+    <color name="swbtn_select_textcolor">#ffffffff</color>
+    <color name="swbtn_default_textcolor">#ff878c98</color>
+    <color name="tab_default_textcolor">#ff9398a6</color>
+    <color name="tab_select_textcolor">#ffffffff</color>
+</resources>

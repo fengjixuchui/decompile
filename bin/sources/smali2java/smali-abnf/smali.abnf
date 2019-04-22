@@ -1,0 +1,117 @@
+#####################
+# Smali ABNF grammar
+# Author: Dmitry Vorobiev
+# Naming conventions:
+# dirXXX - smali directives .XXX
+# classXXX - class entity (field, method etc)
+# methodXXX - method entitiy (directive lines)
+# codeXXX - piece of code
+# cmdXXX - smali command with parameters and optional comment
+#####################
+
+$include "basic.abnf";
+
+#####COMMON RULES#####
+padding = 1*(SP / HTAB);
+optPadding = [padding];
+widePadding = 1*(padding / CRLF);
+optWidePadding = [widePadding];
+listSeparator = *padding COMMA *padding;
+escSymbol = ALPHA / DIGIT / SP / %x21 / %x5c %x22 / %x23-2f / %x3a-40 / %x5b / %x5c %x5c / %x5d-60 / %x7b-7e / %x5c %x72 / %x5c %x6e / %x5c %x74;
+qualifier = (ALPHA / UNDERSCORE) *(ALPHA / DIGIT / UNDERSCORE);
+className = %x4c qualifier *(%x2f qualifier) ["$" qualifier] SEMICOLON;
+commentSequence = %x23 *(padding / VCHAR);
+comment = optPadding commentSequence CRLF;
+emptyLine = optPadding CRLF;
+skipLine = comment / emptyLine;
+fileName = QUOT *(ALPHA / DIGIT) DOT *(ALPHA / DIGIT) QUOT;
+accessMode = "public" / "private" / "protected" / "static" / "final" / "abstract";
+interfaceMode = "interface";
+type = "V" / "Z" / "B" / "S" / "C" / "I" / "J" / "F" / "D" / className / "[" type;
+boolValue = "true" / "false";
+intDecValue = [%x2d] 1*DIGIT;
+intHexValue = [%x2d] %x30 %x78 1*HEXDIG;
+intValue = intHexValue / intDecValue;
+strValue = QUOT *escSymbol QUOT;
+value = boolValue / intValue / strValue;
+codeLabel = COLON qualifier;
+
+#HINT: What is codeRegisterXXX?
+#The naming convention for codeRegister is [P/V]([Ret][64] / [64][Dst]). TODO: rename Ret64 to 64Ret.
+# [_] P is stands for parameter register
+# [_] V is stands for variable register
+# [_] 64 is stands for 64-bit addressing (sets special flag in smali entity, useful for type detection)
+# [_] Dst is stands for destination register (sets special flag in smali entity, useful for type detection)
+# [_] Ret is used in return statements only (sets special flag in smali entity, useful for type detection)
+codeRegisterP = "p" intDecValue;
+codeRegisterP64 = "p" intDecValue;
+codeRegisterV = "v" intDecValue;
+codeRegisterV64 = "v" intDecValue;
+codeRegisterVDst = "v" intDecValue;
+codeRegisterV64Dst = "v" intDecValue;
+codeRegister = codeRegisterP / codeRegisterV;
+codeRegister64 = codeRegisterP64 / codeRegisterV64;
+codeRegisterRet = codeRegisterP / codeRegisterV;
+codeRegisterRet64 = codeRegisterP64 / codeRegisterV64;
+codeRegisterGroup = "{" [optPadding (codeRegisterP / codeRegisterV) optPadding *(COMMA optPadding (codeRegisterP / codeRegisterV) optPadding)] "}";
+
+#####SMALI DIRECTIVE RULES#####
+dirAnnotation = ".annotation";
+dirClass = ".class";
+dirEnd = ".end";
+dirEndAnnotation = dirEnd padding "annotation";
+dirEndField = dirEnd padding "field";
+dirEndMethod = dirEnd padding "method";
+dirEndSubannotation = dirEnd padding "subannotation";
+dirImplements = ".implements";
+dirField = ".field";
+dirLocal = ".local";
+dirMethod = ".method";
+dirRegisters = ".registers";
+dirSubannotation = ".subannotation";
+dirSuper = ".super";
+dirSource = ".source";
+
+#####SMALI GENERAL RULES#####
+smali = classHeader *(classField / skipLine) *(classMethod / skipLine);
+todoStubLine = *(VCHAR / padding);
+
+#####SMALI HEADER RULES#####
+classHeader = *skipLine classClass *skipLine classSuper *skipLine [classSource] *skipLine *classImplements *skipLine;
+
+#class directive statements
+classClass = optPadding dirClass padding *((accessMode / interfaceMode) padding) optPadding className optPadding CRLF;
+classSuper = optPadding dirSuper padding className optPadding CRLF;
+classSource = optPadding dirSource padding fileName optPadding CRLF;
+classImplements = optPadding dirImplements padding className optPadding CRLF;
+
+#method directive statements
+methodLocals = optPadding ".locals" padding intValue optPadding CRLF;
+methodParam = optPadding ".parameter" [padding strValue] optPadding CRLF;
+methodPrologue = optPadding ".prologue" optPadding CRLF;
+methodLine = optPadding ".line" padding intValue optPadding CRLF;
+methodRegisters = optPadding ".registers" padding intValue optPadding CRLF;
+methodLocal = optPadding ".local" padding todoStubLine CRLF;
+
+annotation = optPadding dirAnnotation padding annotationVisibility padding className optPadding CRLF [annotationBody] optPadding dirEndAnnotation optPadding CRLF;
+annotationVisibility = "build" / "system" / "runtime";
+annotationBody = optPadding "value" optPadding "=" optWidePadding "{" [optWidePadding strValue optPadding *(COMMA optWidePadding strValue optWidePadding)] optWidePadding "}" optWidePadding;
+
+
+#####SMALI FIELD RULES#####
+classField = optPadding dirField padding *(accessMode padding) qualifier COLON type optPadding [EQ optPadding value] optPadding CRLF [optWidePadding annotation widePadding dirEndField optPadding CRLF];
+
+#####SMALI METHOD RULES#####
+classMethod = optPadding dirMethod padding *(accessMode padding) (classConstructorName / qualifier) optPadding classMethodProto optPadding CRLF methodBody optPadding dirEndMethod optPadding CRLF;
+classConstructorName = "constructor" padding smaliConstructorName;
+classMethodProto = %x28 *type %x29 type;
+methodBody = *skipLine [methodLocals] *skipLine [methodRegisters] *(methodParam / annotation / skipLine) [methodPrologue] *(methodLine / methodLocal / annotation / cmdAny / label / skipLine);
+
+label = optPadding codeLabel optPadding [commentSequence] CRLF;
+
+smaliConstructorName = ("<init>" / "<clinit>");
+smaliClassRef = className;
+smaliFieldRef = className "->" qualifier COLON type;
+smaliMethodRef = className "->" (smaliConstructorName / qualifier) classMethodProto;
+
+$include "commands.abnf";

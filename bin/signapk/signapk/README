@@ -1,0 +1,22 @@
+you should find your own key from android source tree.
+dir like:
+
+android/build/target/product/security$ ls
+Android.mk  media.pk8  media.x509.pem  platform.pk8  platform.x509.pem  README  shared.pk8  shared.x509.pem  testkey.pk8  testkey.x509.pem  verity_key  verity.pk8  verity.x509.pe
+
+
+move your apk file into src 
+
+1  mv  xxx.apk src/
+
+2  ./run.sh src/xxx.apk 
+
+signapk.jar , is build by ourselves
+1  go to android src dir 
+	android/build/tools/signapk$ ls
+	Android.mk  SignApk.java  SignApk.mf  test
+
+2  mm build signapk.jar
+
+
+

@@ -1,0 +1,113 @@
+#!/data/data/com.termux/files/usr/bin/bash
+if [ -d $HOME/Tmux-Bunch ]
+	then
+dir=$HOME/Tmux-Bunch
+else
+	echo -e "\033[1;31m You'd cloned in wrong directory please again clone in home directory \033[0m"
+	exit
+	fi
+ln -sf $dir/.apktool $PREFIX/bin/apktool
+apt install axel aapt apksigner -y
+####################
+# Check Metasploit #
+####################
+
+if [ ! -d $HOME/metasploit-framework ]
+	then
+	echo -e "\033[1;31m Metasploit cant be found please install metasploit from my official script \033[0m"
+	exit
+	fi
+###############
+## Get apk.rb #
+###############
+
+APK="$HOME/metasploit-framework/lib/msf/core/payload/apk.rb"
+[ -f $APK ] && rm $APK
+axel https://raw.githubusercontent.com/Hax4us/Metasploit_termux/master/apk.rb -o $APK
+echo
+echo -e "\033[1;32m Setting up Tmux-Bunch for you ..."
+echo
+chmod +x $dir/.tbunch
+ln -sf $dir/.tbunch $PREFIX/bin/tbunch
+chmod +x $dir/.apktool
+chmod +x $dir/tmuxbunch
+#chmod +x $dir/.signapk
+if [ ! -d $dir/embout ]
+	then
+mkdir $dir/embout
+fi
+if [ ! -d $dir/shell ]
+	then
+mkdir $dir/shell
+fi
+if [ ! -d $dir/binder ]; then
+	mkdir $dir/binder
+	fi
+	if [ -f $PREFIX/bin/tmuxbunch ]
+		then
+			rm $PREFIX/bin/tmuxbunch
+			fi
+#ln -s $dir/tmuxbunch $PREFIX/bin/
+wrapperscript() {
+	cat > $PREFIX/bin/tmuxbunch <<- EOM
+	#!/data/data/com.termux/files/usr/bin/bash
+	if [ -d \$HOME/Tmux-Bunch ]
+	then
+	cd \$HOME/Tmux-Bunch
+	bash tmuxbunch
+else
+echo " Tmux-Bunch not found :("
+fi
+	EOM
+}
+
+###############
+# Get Openjdk #
+###############
+
+getjava() {
+	if [ $(getprop ro.product.cpu.abi) = arm64-v8a ]; then
+		ARCH=aarch64
+		FILE=openjdk-9-jre-headless_9.2017.8.20_${ARCH}.deb
+		URL="https://termux.xeffyr.ml/dists/extra/main/binary-${ARCH}/${FILE}"
+	elif [ $(getprop ro.product.cpu.abi) = armeabi -o $(getprop ro.product.cpu.abi) = armeabi-v7a ]
+		then
+			ARCH=arm
+			FILE=openjdk-9-jre-headless_9.2017.8.20_${ARCH}.deb
+			URL="https://termux.xeffyr.ml/dists/extra/main/binary-${ARCH}/${FILE}"
+		else
+			printf "\033[1;31m Unknown Arch"
+			exit 1
+			fi
+
+	printf "\033[1;32m Downloading Java ...\n"
+	printf "Please wait ..."
+
+	axel --alternate "$URL"
+}
+
+#################
+# Install Java  #
+#################
+
+installjava() {
+	DEPENDS="freetype libpng ca-certificates-java"
+	apt install ${DEPENDS} -y
+	dpkg -i ${FILE}
+	rm ${FILE}
+}
+if [ ! -f $PREFIX/bin/java ];
+	then
+getjava
+installjava
+fi
+
+wrapperscript
+chmod +x $PREFIX/bin/tmuxbunch
+
+echo
+echo "DONE"
+sleep 1
+re='\033[0m'
+echo -e "[*] Now you can run tmuxbunch v2.7-Oreo --Hax4Us--- $re"
+

@@ -1,0 +1,67 @@
+#!/usr/bin/env python
+## Copyright 2011, IOActive, Inc. All rights reserved.
+##
+## AndBug is free software: you can redistribute it and/or modify it under 
+## the terms of version 3 of the GNU Lesser General Public License as 
+## published by the Free Software Foundation.
+##
+## AndBug is distributed in the hope that it will be useful, but WITHOUT ANY
+## WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS 
+## FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for 
+## more details.
+##
+## You should have received a copy of the GNU Lesser General Public License
+## along with AndBug.  If not, see <http://www.gnu.org/licenses/>.
+
+'this script executes command modules found in andbug.commands'
+import os, os.path, sys, traceback, atexit
+
+def panic(why, exit=True, exc=False):
+    sys.stderr.write("!! %s\n" % (why,))
+    sys.stderr.flush()
+    if exc:
+        traceback.print_exc()
+    if exit:
+        sys.exit(-1)
+
+def main(args):
+    import andbug, andbug.cmd, andbug.command
+
+    atexit.register(sys.stdout.write, '\x1B[0m\n')
+    andbug.command.load_commands()
+
+    try:
+        andbug.command.run_command(args)
+        sys.exit(0)
+    except andbug.UserError as err:
+        panic(err)
+    except Exception as err:
+        panic(err, exc=True)
+
+def find_python2():
+    path = os.environ.get("PATH")
+    if path == None:
+        panic("no PATH in your environment to search for python2")
+    for path in path.split(os.pathsep):
+        python2 = os.path.join(path, "python2")
+        if os.path.exists(python2):
+            return python2
+    panic("andbug does not support python != 2")
+
+if __name__ == '__main__':
+    inv = os.path.basename(sys.argv[0]).lower()
+    if inv == "andbug":
+        args = sys.argv[1:]
+    else:
+        args = [inv] + sys.argv[1:]
+
+    if not args: args = ['help']
+
+    if sys.version_info[0] != 2:
+        python2 = find_python2()
+        panic('andbug requires python2, chaining to ' + python2, exit=False)
+        os.execv(python2, [python2] + sys.argv)
+        panic('could not execv %s' % python2)
+
+    main(args)
+

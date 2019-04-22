@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#00000000" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="horizontal" android:background="@drawable/bottom_gray" android:layout_width="fill_parent" android:layout_height="48.0dip">
+        <ImageButton android:id="@id/perf_detail_back" android:background="#00000000" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_marginLeft="6.0dip" android:src="@drawable/a_gt_imgbtn_back_selector" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="24.0sp" android:textColor="@drawable/white" android:gravity="center" android:id="@id/perf_detail_title" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/prof_detail_title" />
+        <ImageButton android:id="@id/perf_detail_save" android:background="#00000000" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_marginRight="6.0dip" android:src="@drawable/a_gt_imgbtn_save_selector" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <TextView android:background="#00000000" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    <TextView android:background="#ff29292d" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:background="@drawable/a_gt_perf_tag_list_item_border" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="10.0dip" android:layout_marginTop="16.0dip" android:layout_marginRight="10.0dip" android:layout_weight="3.0">
+            <TextView android:textSize="20.0dip" android:textColor="@drawable/text_title_gray" android:gravity="center_vertical" android:id="@id/bh_perf_detail_group" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="9.0dip" android:maxLines="1" android:singleLine="false" />
+            <TextView android:textSize="20.0dip" android:textColor="@drawable/text_title_gray" android:gravity="top" android:id="@id/bh_perf_detail_tag" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="9.0dip" android:maxLines="3" android:singleLine="false" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="36.0dip" android:layout_marginLeft="9.0dip" android:layout_marginRight="9.0dip">
+                <TextView android:textSize="16.0dip" android:textColor="@drawable/text_title_gray" android:gravity="top" android:id="@id/bh_perf_detail_times_toast" android:layout_width="55.0dip" android:layout_height="fill_parent" android:text="@string/prof_detail_Count" />
+                <TextView android:textSize="18.0dip" android:textColor="@drawable/text_green" android:gravity="top" android:id="@id/bh_perf_detail_times" android:layout_width="100.0dip" android:layout_height="fill_parent" />
+                <TextView android:textSize="16.0dip" android:textColor="@drawable/text_title_gray" android:gravity="top" android:id="@id/bh_perf_detail_ave_toast" android:layout_width="55.0dip" android:layout_height="fill_parent" android:text="@string/prof_detail_ave" />
+                <TextView android:textSize="18.0dip" android:textColor="@drawable/text_green" android:gravity="top" android:id="@id/bh_perf_detail_ave" android:layout_width="100.0dip" android:layout_height="fill_parent" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="30.0dip" android:layout_marginLeft="9.0dip" android:layout_marginRight="9.0dip">
+                <TextView android:textSize="16.0dip" android:textColor="@drawable/text_title_gray" android:gravity="top" android:id="@id/bh_perf_detail_max_toast" android:layout_width="55.0dip" android:layout_height="fill_parent" android:text="@string/prof_detail_max" />
+                <TextView android:textSize="18.0dip" android:textColor="@drawable/text_green" android:gravity="top" android:id="@id/bh_perf_detail_max" android:layout_width="100.0dip" android:layout_height="fill_parent" />
+                <TextView android:textSize="16.0dip" android:textColor="@drawable/text_title_gray" android:gravity="top" android:id="@id/bh_perf_detail_min_toast" android:layout_width="55.0dip" android:layout_height="fill_parent" android:text="@string/prof_detail_min" />
+                <TextView android:textSize="18.0dip" android:textColor="@drawable/text_green" android:gravity="top" android:id="@id/bh_perf_detail_min" android:layout_width="100.0dip" android:layout_height="fill_parent" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/bh_perf_detail_chart" android:background="@drawable/a_gt_perf_tag_list_item_border" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="2.0" />
+    </LinearLayout>
+</LinearLayout>

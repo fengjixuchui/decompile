@@ -1,0 +1,33 @@
+ApkAssist(Apk一键捆绑工具)
+功能：
+*AndroidManifest.xml反编译、编译、合并，指定so DT_NEEDED注入我们的so。
+*Apk一键捆绑，两种姿势：
+	1.so DT_NEEDED注入。
+	2.dex smali注入。
+
+使用说明：
+1.*确定系统是64位Windows,确定已安装64位版jdk 8并添加bin目录到Path环境变量。
+2.命令行：
+java -jar ApkAssist.jar assit [-d -b -m -n]
+ -d AndroidManifest_.xml AndroidManifest.xml 反编译AndroidManifest.xml到AndroidManifest_.xml
+ -b AndroidManifest.xml AndroidManifest_.xml 编译AndroidManifest_.xml到AndroidManifest.xml
+ -m AndroidManifest.xml AndroidManifest_.xml 合并AndroidManifest_.xml（反编译过的）到AndroidManifest.xml（未反编译过的）。
+ -n libjiagu.so libassist.so 注入libassist.so到libjiagu.so。
+java -jar ApkAssist.jar [-n -l]
+ -n libjiagu.so,libjiagu_x86.so libassist.so test.apk 注入libassist.so到libjiagu.so,libjiagu_x86.so，并捆绑。（so DT_NEEDED注入）
+ -l assist test.apk 在主dex的主类插入静态构造函数，插入加载libassist.so代码，并捆绑。（dex smali注入）
+ 主类：App Entry类，没有则为Main Activity类。
+ 主dex：主类所在的dex。
+
+编写捆绑so：
+在你的so代码里插入编译器构造函数，函数里加载我的libassist.so。
+例：
+void __attribute__ ((constructor)) load() {
+	dlopen(“libassist.so”, RTLD_NOW);
+	// 你的hook代码
+}
+生成Apk之后，复制lib目录到本工具inject目录。
+目录说明：
+ inject/assets 将复制到Apk的assets目录。
+ inject/dex	   将目录下所有dex合并为assist，并复制到Apk的assets目录。
+ inject/lib    将目录下与Apk的lib目录下同名的文件夹复制过去。

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0sp" android:textColor="@drawable/text_hint_gray" android:gravity="center" android:id="@id/log_search_list_item_seq" android:layout_width="28.0dip" android:layout_height="wrap_content" />
+    <com.tencent.wstt.gt.views.PatchedTextView android:textSize="17.0sp" android:textColor="@drawable/text_green" android:id="@id/log_search_list_item" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

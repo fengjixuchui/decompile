@@ -1,0 +1,1 @@
+echo 000000|jarsigner -verbose -keystore /Users/bailiangjin/Desktop/apksign/innerload.jks -signedjar /Users/bailiangjin/Desktop/apksign/danci11_unsign_signed.apk /Users/bailiangjin/Desktop/apksign/danci11_unsign.apk innerload

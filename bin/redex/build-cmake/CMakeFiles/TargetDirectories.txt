@@ -1,0 +1,6 @@
+/Users/sanbo/Desktop/redex/build-cmake/CMakeFiles/rebuild_cache.dir
+/Users/sanbo/Desktop/redex/build-cmake/CMakeFiles/edit_cache.dir
+/Users/sanbo/Desktop/redex/build-cmake/CMakeFiles/redex.dir
+/Users/sanbo/Desktop/redex/build-cmake/CMakeFiles/resource.dir
+/Users/sanbo/Desktop/redex/build-cmake/CMakeFiles/tool.dir
+/Users/sanbo/Desktop/redex/build-cmake/CMakeFiles/redex-all.dir

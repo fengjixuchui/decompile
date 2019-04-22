@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/draglist_item_bottom" android:background="@drawable/a_gt_sortable_bottom" android:layout_width="fill_parent" android:layout_height="52.0dip" />
+    <TextView android:id="@id/listrow_top_border" android:background="#ff3c3c42" android:layout_width="fill_parent" android:layout_height="2.0dip" />
+    <TextView android:id="@id/listrow_left_border" android:background="#ff3c3c42" android:layout_width="2.0dip" android:layout_height="52.0dip" android:layout_alignParentLeft="true" />
+    <TextView android:id="@id/listrow_right_border" android:background="#ff3c3c42" android:layout_width="2.0dip" android:layout_height="52.0dip" android:layout_alignParentRight="true" />
+    <RelativeLayout android:id="@id/rl_drag_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/listrow_right_border" android:layout_centerVertical="true">
+        <TextView android:textSize="20.0sp" android:textColor="#ffb7bdcf" android:gravity="center_vertical" android:id="@id/draglist_shotkey" android:layout_width="58.0dip" android:layout_height="30.0dip" android:layout_marginLeft="8.0dip" android:singleLine="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="14.0sp" android:textColor="#ffb7bdcf" android:gravity="center_vertical" android:id="@id/draglist_key" android:layout_width="fill_parent" android:layout_height="30.0dip" android:layout_marginRight="55.0dip" android:singleLine="true" android:layout_toRightOf="@id/draglist_shotkey" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/drag_handle" android:background="@drawable/drag" android:layout_width="54.0dip" android:layout_height="48.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/para_top_drag" />
+    </RelativeLayout>
+    <TextView android:layout_gravity="bottom" android:id="@id/listrow_bottom_border" android:background="#ff3c3c42" android:layout_width="fill_parent" android:layout_height="2.0dip" android:layout_below="@id/rl_drag_img" />
+</RelativeLayout>

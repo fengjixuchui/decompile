@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/setting_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:background="#ff3c3c42" android:layout_width="fill_parent" android:layout_height="48.0dip">
+        <TextView android:textSize="17.0sp" android:textColor="#ff9398a6" android:gravity="center" android:layout_gravity="left|center" android:id="@id/tv_back" android:background="@drawable/a_gt_inparam_top" android:layout_width="76.0dip" android:layout_height="40.0dip" android:layout_marginLeft="10.0dip" android:text="@string/back" />
+        <TextView android:textSize="20.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="48.0dip" android:text="@string/setting_log_title" />
+    </FrameLayout>
+    <TextView android:background="#ff1c1c21" android:layout_width="fill_parent" android:layout_height="2.0dip" />
+    <RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/master_switch_layout" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="10.0dip">
+        <TextView android:textSize="19.0sp" android:textColor="#ffb7bdcf" android:gravity="left|center" android:id="@id/master_switch" android:background="@drawable/seekbar_border" android:paddingLeft="8.0dip" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="@string/setting_log_switch" />
+        <com.tencent.wstt.gt.views.GTCheckBox android:id="@id/cb_master_switch" android:background="@null" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginRight="10.0dip" android:button="@drawable/gtcheckbox" />
+    </RelativeLayout>
+    <RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/auto_save_layout" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="10.0dip">
+        <TextView android:textSize="19.0sp" android:textColor="#ffb7bdcf" android:gravity="left|center" android:id="@id/auto_save" android:background="@drawable/seekbar_border" android:paddingLeft="8.0dip" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="@string/setting_log_autosave" />
+        <com.tencent.wstt.gt.views.GTCheckBox android:id="@id/cb_auto_save" android:background="@null" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginRight="10.0dip" android:button="@drawable/gtcheckbox" />
+    </RelativeLayout>
+    <RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/auto_save_flush_layout" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="10.0dip">
+        <TextView android:textSize="19.0sp" android:textColor="#ffb7bdcf" android:gravity="left|center" android:id="@id/auto_save_flush" android:background="@drawable/seekbar_border" android:paddingLeft="8.0dip" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="@string/setting_log_as_qf" />
+        <com.tencent.wstt.gt.views.GTCheckBox android:id="@id/cb_auto_save_flush" android:background="@null" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginRight="10.0dip" android:button="@drawable/gtcheckbox" />
+    </RelativeLayout>
+</LinearLayout>

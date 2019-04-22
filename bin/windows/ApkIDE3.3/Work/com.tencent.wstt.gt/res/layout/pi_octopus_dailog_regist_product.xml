@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/pre_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginRight="8.0dip" android:text="@string/pi_octopus_upload_regist_product_content" android:singleLine="false" />
+    <TextView android:autoLink="web" android:id="@id/link_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginRight="8.0dip" android:text="@string/pi_octopus_upload_regist_product_linkfaq" android:singleLine="false" android:layout_below="@id/pre_content" />
+    <TextView android:id="@id/after_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="8.0dip" android:text="@string/pi_octopus_upload_regist_product_question" android:singleLine="false" android:layout_below="@id/link_content" />
+    <EditText android:textSize="16.0sp" android:id="@id/project_editor" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginRight="8.0dip" android:hint="最大14英文字符或7中文字符" android:singleLine="true" android:maxLength="14" android:layout_below="@id/after_content" android:layout_centerVertical="true" />
+</RelativeLayout>

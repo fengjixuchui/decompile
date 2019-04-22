@@ -1,0 +1,18 @@
+#mac temp file
+*.idea/
+__MACOSX
+*.DS_Store
+
+
+#temp file
+*.bak
+
+*.pmd
+
+# office temp file
+*~
+~*
+
+*jd-gui.cfg
+
+apk/*

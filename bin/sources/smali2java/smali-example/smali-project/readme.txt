@@ -1,0 +1,1 @@
+This directory contains examples from smali project (http://code.google.com/p/smali/).

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 9pt;
+	color: #FFFFFF;
+}
+.sc0 {
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #000000; "><span class="sc0">『ApkTool』简要介绍
+================================
+感谢"不乖打Pp" (QQ:81662064)  提供1.3.5测试版源码。
+
+此程序在其基础上完善并添加一些功能，此版本号定位2.0 最终版。
+定为最终版的原因是支持动态加载最新的内置工具：
+..\Bin\*.*目录下的所有工具如果有最新版本的，替换Bin目录内的程序即可应用最新版。
+[注意：不要更改目录内的文件名，否则不会被加载。]，判断是否使用最新版本的程序，
+可以看启动日志中每个文件的路径。日志内容如下：
+加载apktool.jar的路径:C:\Users\Owner\Desktop\ApktoolGul\Bin\apktool.jar
+加载aapt.exe的路径:C:\Users\Owner\Desktop\ApktoolGul\Bin\aapt.exe
+加载signapk.jar的路径:C:\Users\Owner\Desktop\ApktoolGul\Bin\signapk.jar
+加载testkey.pk8的路径:C:\Users\Owner\Desktop\ApktoolGul\Bin    estkey.pk8
+加载testkey.x509.pem的路径:C:\Users\Owner\Desktop\ApktoolGul\Bin    estkey.x509.pem
+加载baksmali.jar的路径:C:\Users\Owner\Desktop\ApktoolGul\Bin\baksmali.jar
+加载smali.jar的路径:C:\Users\Owner\Desktop\ApktoolGul\Bin\smali.jar
+加载dex2jar.jar的路径:C:\Users\Owner\Desktop\ApktoolGul\Bin\dex2jar.jar
+加载asm-debug-all.jar的路径:C:\Users\Owner\Desktop\ApktoolGul\Bin\asm-debug-all.jar
+加载commons-io.jar的路径:C:\Users\Owner\Desktop\ApktoolGul\Bin\commons-io.jar
+加载slf4j-simple.jar的路径:C:\Users\Owner\Desktop\ApktoolGul\Bin\slf4j-simple.jar
+加载slf4j-api.jar的路径:C:\Users\Owner\Desktop\ApktoolGul\Bin\slf4j-api.jar
+==============================================================
+                    华丽的分割线
+==============================================================
+
+
+使用说明：
+===========================================================
+使用环境：须安装 java，下载地址：http://www.java.com/zh_CN/
+1、反编译APK
+    拖拽APK程序到"反编译APK"按钮前的输入区，点击"反编译APK"按钮   
+2、重建APK
+    把第一步得到 文件夹 拖拽到"重建APK"按钮前面的输入区，点击"重建APK"按钮，
+    至此会自动生成已经签名好的"XXOO(已签名).apk"
+3、签名
+    拖拽APK程序到"签名"按钮前的输入区，点击"签名"按钮，自动生成已经签名好的"XXOO(已签名).apk"
+4、反编译dex
+    拖拽dex文件或odex到"反编译dex"按钮前的输入区，点击"反编译dex"按钮，
+    会在dex文件所在目录外生成一个与dex文件名相同的目录
+5、重建dex
+    拖拽要重建的目录到"重建dex"按钮前的输入区，点击"重建dex"按钮，会生成与目录名相同的dex文件
+6、dex转jar
+    拖拽dex文件或odex到"6、dex转jar"按钮前的输入区，点击"6、dex转jar"按钮，
+    test.dex 会生成  test.dex.dex2jar.jar 文件
+7、jar,class转java
+    拖拽保护class的目录，或.class文件或 jar文件到"jar,class转java"按钮前的输入区，点击"jar,class转java"按钮，
+    会生成相应的 java文件。
+   
+==========================
+内置软件版本：           |
+apktool         1.4.3    |
+aapt            r04      |
+baksmali        1.3.2    |
+smali           1.3.2    |
+dex2jar         0.0.7.9  |
+asm-debug-all   3.2      |
+commons-io      2.0      | 
+slf4j           1.5.6    |
+jad             1.5.8e2  |
+==========================
+
+^_^ Enjoy！ 
+
+                                    2012.3.16   By:漏网之鱼 
+                                    QQ:530747686</span></div></body>
+</html>

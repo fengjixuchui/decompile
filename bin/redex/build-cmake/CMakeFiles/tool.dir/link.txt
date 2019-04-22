@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtool.a  CMakeFiles/tool.dir/tools/tool/Tool.cpp.o CMakeFiles/tool.dir/tools/tool/ToolRegistry.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtool.a

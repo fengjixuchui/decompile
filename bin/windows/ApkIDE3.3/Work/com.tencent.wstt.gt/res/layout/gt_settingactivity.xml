@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:orientation="vertical" android:id="@id/setting_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="10.0dip">
+            <TextView android:textSize="15.0sp" android:textColor="#ffffffff" android:id="@id/tested_app_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AUT_under_test" />
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/tested_app_desc" android:layout_alignParentBottom="true">
+                <RelativeLayout android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_marginLeft="5.0dip" android:layout_marginTop="25.0dip">
+                    <TextView android:id="@id/selected_app_bg" android:background="@drawable/seekbar_border" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                    <TextView android:gravity="left" android:id="@id/app_pic" android:background="@drawable/pi_procinfo" android:layout_width="45.0dip" android:layout_height="45.0dip" android:layout_marginLeft="8.0dip" android:layout_centerVertical="true" />
+                    <TextView android:textSize="14.0sp" android:textColor="#ffb7bdcf" android:gravity="center" android:id="@id/selected_apn" android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_marginLeft="5.0dip" android:layout_marginTop="5.0dip" android:text="@string/AUT_choose" android:singleLine="true" android:layout_toRightOf="@id/app_pic" />
+                    <TextView android:textSize="12.0sp" android:textColor="#ffb7bdcf" android:gravity="top" android:id="@id/select_tested_pkn" android:layout_width="wrap_content" android:layout_height="15.0dip" android:layout_marginBottom="5.0dip" android:text="@string/na" android:singleLine="true" android:layout_alignLeft="@id/selected_apn" android:layout_alignBottom="@id/app_pic" />
+                    <TextView android:gravity="right" android:id="@id/select_app" android:background="@android:color/transparent" android:layout_width="35.0dip" android:layout_height="50.0dip" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+                    <TextView android:gravity="right" android:id="@id/select_app_icon" android:background="@drawable/a_expand_r_big" android:layout_width="20.0dip" android:layout_height="20.0dip" android:layout_marginRight="8.0dip" android:layout_alignParentRight="true" android:layout_centerInParent="true" />
+                </RelativeLayout>
+            </RelativeLayout>
+            <TextView android:textSize="15.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/app_refresh" android:background="@drawable/editbtn" android:layout_width="55.0dip" android:layout_height="20.0dip" android:layout_marginLeft="10.0dip" android:text="@string/AUT_app_refresh" android:layout_toLeftOf="@id/app_status" />
+            <TextView android:textSize="15.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/app_status" android:background="@drawable/editbtn" android:layout_width="55.0dip" android:layout_height="20.0dip" android:layout_marginLeft="10.0dip" android:text="@string/AUT_app_lanuch" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip">
+            <TextView android:textSize="15.0sp" android:textColor="#ffb7bdcf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AUT_meminfo_title" />
+            <TextView android:textSize="15.0sp" android:textColor="#ffb7bdcf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dip" android:text="@string/AUT_mem_assistant" android:layout_toLeftOf="@id/memswitch" />
+            <RelativeLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/memswitch" android:background="@drawable/seekbar_border" android:layout_width="65.0dip" android:layout_height="25.0dip" android:layout_alignParentRight="true">
+                <TextView android:textSize="15.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/btn_memon" android:background="@drawable/swbtn_selected" android:layout_width="25.0dip" android:layout_height="20.0dip" android:layout_marginLeft="8.0dip" android:layout_marginTop="3.0dip" />
+                <TextView android:textSize="15.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/btn_memoff" android:background="@drawable/swbtn_default" android:layout_width="25.0dip" android:layout_height="20.0dip" android:layout_marginTop="3.0dip" android:text="@string/off" android:layout_toRightOf="@id/btn_memon" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <CheckBox android:textSize="13.0sp" android:id="@id/cb_pss" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="@string/PSS" />
+            <CheckBox android:textSize="13.0sp" android:id="@id/cb_pd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="75.0dip" android:checked="false" android:text="@string/Private_Dirty" />
+        </LinearLayout>
+        <TextView android:textSize="15.0sp" android:textColor="#ffb7bdcf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/AUT_ohterinfo_title" />
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <CheckBox android:textSize="13.0sp" android:id="@id/cb_cpu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="@string/CPU" />
+            <CheckBox android:textSize="13.0sp" android:id="@id/cb_jiffies" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="75.0dip" android:checked="false" android:text="@string/jiffies" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <CheckBox android:textSize="13.0sp" android:id="@id/cb_net" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="@string/Net" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

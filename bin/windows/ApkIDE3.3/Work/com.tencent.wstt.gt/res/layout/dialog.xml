@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center" android:orientation="vertical" android:background="@drawable/alert_bg" android:paddingLeft="@dimen/dialog_content_margin" android:paddingRight="@dimen/dialog_content_margin" style="@style/Dialog"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center" android:padding="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="18.0sp" android:textColor="#ff666666" android:layout_gravity="center_vertical" android:id="@id/dialog_title_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/content_view" android:background="#ffffffff" android:paddingTop="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/dialog_body_height" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/bottom_area" android:paddingLeft="4.0dip" android:paddingRight="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:id="@id/agreement_area" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" android:layout_marginTop="0.0dip">
+            <CheckBox android:textSize="14.0sp" android:textColor="@drawable/black" android:id="@id/cb_agreement" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="@string/eula_accept_text" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip">
+            <Button android:id="@id/button_negative" android:layout_width="fill_parent" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:text="@string/cancel" android:layout_weight="1.0" style="@style/DialogButton" />
+            <Button android:id="@id/button_positive" android:layout_width="fill_parent" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:text="@string/ok" android:layout_weight="1.0" style="@style/DialogButton" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

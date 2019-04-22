@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/content" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <LinearLayout android:background="@drawable/bottom_gray" android:layout_width="fill_parent" android:layout_height="60.0dip" android:baselineAligned="false">
+        <FrameLayout android:id="@id/aut_layout" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:id="@id/aut_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tab_selected_border" android:contentDescription="@string/AUT_tab_name" />
+            <TextView android:textColor="#ff82858b" android:layout_gravity="center" android:id="@id/aut_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/AUT_tab_name" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/param_layout" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:id="@id/param_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tab_selected_border" android:contentDescription="@string/para_tab_name" />
+            <TextView android:textColor="#ff82858b" android:layout_gravity="center" android:id="@id/param_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/para_tab_name" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/perf_layout" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:id="@id/perf_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tab_selected_border" android:contentDescription="@string/prof_title" />
+            <TextView android:textColor="#ff82858b" android:layout_gravity="center" android:id="@id/perf_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/prof_title" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/log_layout" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:id="@id/log_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tab_selected_border" android:contentDescription="@string/log_tab_name" />
+            <TextView android:textColor="#ff82858b" android:layout_gravity="center" android:id="@id/log_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/log_tab_name" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/plugin_layout" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:id="@id/plugin_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tab_selected_border" android:contentDescription="@string/plugin_tab_name" />
+            <TextView android:textColor="#ff82858b" android:layout_gravity="center" android:id="@id/plugin_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/plugin_tab_name" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

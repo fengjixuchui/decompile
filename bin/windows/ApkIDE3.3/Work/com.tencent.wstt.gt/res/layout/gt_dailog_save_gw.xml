@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:textColor="#ffb7bdcf" android:id="@id/save_editor_title" android:paddingLeft="10.0dip" android:paddingTop="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/save_folder" />
+    <RelativeLayout android:id="@id/save_editor_Area" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/save_editor_title">
+        <LinearLayout android:orientation="horizontal" android:id="@id/save_editor_pre_area" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:layout_marginTop="0.0dip" android:layout_marginRight="0.0dip">
+            <TextView android:textSize="16.0sp" android:textColor="@drawable/text_green" android:id="@id/save_editor_pre" android:paddingLeft="10.0dip" android:paddingTop="14.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gw_root_folder" />
+            <EditText android:textSize="16.0sp" android:textColor="@drawable/text_green" android:id="@id/save_editor_folder_parent1" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="0.0dip" android:layout_marginBottom="4.0dip" android:hint="@string/must_fill_hint" android:singleLine="true" android:maxLength="100" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:layout_marginTop="0.0dip" android:layout_marginRight="0.0dip" android:layout_below="@id/save_editor_pre_area">
+            <TextView android:textSize="16.0sp" android:textColor="@drawable/text_green" android:paddingTop="7.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/斜杠" />
+            <EditText android:textSize="16.0sp" android:textColor="@drawable/text_green" android:id="@id/save_editor_folder_parent2" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="0.0dip" android:hint="@string/must_fill_hint" android:singleLine="true" android:maxLength="100" android:layout_weight="1.0" />
+            <TextView android:textSize="16.0sp" android:textColor="@drawable/text_green" android:paddingTop="7.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/斜杠" />
+            <RelativeLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <EditText android:textSize="16.0sp" android:textColor="@drawable/text_green" android:id="@id/save_editor" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="0.0dip" android:hint="@string/must_fill_hint" android:singleLine="true" android:maxLength="150">
+                    <requestFocus />
+                </EditText>
+                <ImageButton android:id="@id/save_clean" android:background="#00ffffff" android:layout_width="16.0sp" android:layout_height="16.0sp" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip" android:src="@drawable/a_search_delete" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <TextView android:textSize="16.0sp" android:textColor="#ffb7bdcf" android:id="@id/save_editor_desc_title" android:paddingLeft="10.0dip" android:paddingTop="14.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/test_desc" android:layout_below="@id/save_editor_Area" />
+    <EditText android:textSize="16.0sp" android:id="@id/save_editor_desc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="1.0dip" android:layout_marginTop="0.0dip" android:layout_marginRight="1.0dip" android:hint="@string/not_must_fill_hint" android:singleLine="true" android:layout_below="@id/save_editor_desc_title" />
+    <CheckBox android:textSize="16.0sp" android:textColor="#ffb7bdcf" android:id="@id/cb_save_editor_2cloud" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/save2cloud_desc" android:layout_below="@id/save_editor_desc" />
+    <TextView android:textSize="15.0sp" android:textColor="@color/red" android:id="@id/invalid_alarm" android:paddingLeft="10.0dip" android:paddingTop="10.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:layout_below="@id/cb_save_editor_2cloud" />
+</RelativeLayout>

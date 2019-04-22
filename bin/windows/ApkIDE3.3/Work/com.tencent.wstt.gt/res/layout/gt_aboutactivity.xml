@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:baselineAligned="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:background="#ff3c3c42" android:layout_width="fill_parent" android:layout_height="48.0dip">
+        <TextView android:textSize="17.0sp" android:textColor="#ff9398a6" android:gravity="center" android:layout_gravity="left|center" android:id="@id/about_back" android:background="@drawable/a_gt_inparam_top" android:layout_width="60.0dip" android:layout_height="40.0dip" android:layout_marginLeft="10.0dip" android:text="@string/back" />
+        <TextView android:textSize="20.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/about_title" android:layout_width="fill_parent" android:layout_height="48.0dip" android:text="@string/setting_about" />
+    </FrameLayout>
+    <TextView android:background="#ff1c1c21" android:layout_width="fill_parent" android:layout_height="2.0dip" />
+    <ImageView android:layout_gravity="center_horizontal" android:id="@id/gt_logo" android:background="@drawable/about_gt" android:layout_width="100.0dip" android:layout_height="100.0dip" android:layout_marginTop="20.0dip" />
+    <TextView android:textSize="20.0sp" android:textColor="#ff808080" android:gravity="center_horizontal" android:id="@id/about_gt" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:background="#ff3c3c42" android:layout_width="fill_parent" android:layout_height="49.0dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="18.0dip" android:layout_marginRight="10.0dip" />
+        <TextView android:textSize="18.0sp" android:textColor="#ffb7bdcf" android:gravity="left|center" android:id="@id/homepage" android:background="#ff29292d" android:paddingLeft="8.0dip" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginLeft="12.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="12.0dip" android:text="@string/setting_about_homepage" />
+    </RelativeLayout>
+    <TextView android:textSize="16.0sp" android:textColor="#ff8697b5" android:gravity="center" android:layout_gravity="bottom" android:id="@id/policy" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="120.0dip" android:text="@string/privacy" />
+    <TextView android:textSize="10.0sp" android:textColor="#ffb7bdcf" android:gravity="center" android:layout_gravity="bottom" android:id="@id/copyright" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="@string/copyright" />
+    <TextView android:textSize="10.0sp" android:textColor="#ffb7bdcf" android:gravity="center" android:layout_gravity="bottom" android:id="@id/reserved" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="@string/reserved" />
+</LinearLayout>
