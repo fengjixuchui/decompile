@@ -74,6 +74,19 @@ https://github.com/WindySha/Xpatch
 anti-counterfeit-android
 https://github.com/Labmem003/anti-counterfeit-android
 
+drizzleDumper
+drizzleDumper是一款基于内存搜索的Android脱壳工具。
+https://github.com/DrizzleRisk/drizzleDumper#drizzledumper
+https://www.freebuf.com/sectool/105147.html
+
+
+TUnpacker
+TUnpacker是一款Android脱壳工具
+https://github.com/DrizzleRisk/TUnpacker
+
+BUnpacker
+BUnpacker是一款Android脱壳工具
+https://github.com/DrizzleRisk/BUnpacker
 
 ## 搜索是否集成Eguan SAAS SDK
 
