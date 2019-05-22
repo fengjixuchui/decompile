@@ -71,6 +71,10 @@ APKDB v2.0.3 正式版：https://idoog.me/?p=11969
 xpatch[免Root实现app加载Xposed插件工具]
 https://github.com/WindySha/Xpatch
 
+anti-counterfeit-android
+https://github.com/Labmem003/anti-counterfeit-android
+
+
 ## 搜索是否集成Eguan SAAS SDK
 
 0. 反编译后的文件夹下
