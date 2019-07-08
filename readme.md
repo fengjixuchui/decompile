@@ -88,6 +88,9 @@ BUnpacker
 BUnpacker是一款Android脱壳工具
 https://github.com/DrizzleRisk/BUnpacker
 
+整理文档地址
+https://crifan.github.io/android_app_security_crack/website/android_crack_tool/other_crack_tool/
+
 ## 搜索是否集成Eguan SAAS SDK
 
 0. 反编译后的文件夹下
