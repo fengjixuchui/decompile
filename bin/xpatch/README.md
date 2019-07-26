@@ -1,4 +1,3 @@
-### [**English Version**](https://github.com/WindySha/Xpatch/blob/6ec0f3c16128dda46ab05bdd915d66ebbdaaf9fc/README_en.md)
 
 # Android App破解工具Xpatch的使用方法
 
@@ -9,18 +8,10 @@ Xpatch用来重新签名打包Apk文件，使重打包后的Apk能加载安装�
 Xpatch的原理是对Apk文件进行二次打包，重新签名，并生成一个新的apk文件。
 在Apk二次打包过程中，插入加载Xposed插件的逻辑，这样，新的Apk文件就可以加载任意Xposed插件，从而实现免Root Hook任意App的Java代码。
 
-Hook框架底层使用的是Lody的whale，支持的平台架构有：ARM/THUMB、ARM64，支持的andrid版本大致有（其他未测试）：
-
- - Android 5.0.0
- - Android 5.1.1
- - Android 6.0
- - Android 6.0.1
- - Android 7.1.2
- - Android 8.1.0
- - Android 9.0.0
+1.0~1.4版本，Hook框架使用的是Lody的whale，2.0版本开始，Hook框架底层使用的是ganyao114的[SandHook](https://github.com/ganyao114/SandHook)。
 
 ## Xpatch工具包下载
-[点击我下载最新的Xpatch Jar包][1]  
+[点击我下载最新的Xpatch Jar包][1]    
 或者进入Releases页面下载：[releases][2]
 
 ## Xpatch使用方法
@@ -78,10 +69,19 @@ $ java -jar ../../xpatch.jar ../../wechat.apk -c
  >                            k, multi files should be seperated by :(mac) or ;(
  >                             win) 
 
-使用方式为在命令后面增加`-xm path:path:path`即可，比如：
+使用方式为在命令后面增加`-xm path`即可，比如：
 ```
-$ java -jar ../../xpatch.jar ../../wechat.apk -xm ../../module1.apk:../../module2.apk
+$ java -jar ../../xpatch.jar ../../source.apk -xm ../../module1.apk
 ```
+假如需要将多个Xposed插件打包进去，在Mac中使用":"，在Windows下使用";"，隔开多个文件路径即可，比如：
+```
+mac
+$  java -jar ../../xpatch.jar ../../source.apk -xm ../../module1.apk:../../module2.apk  
+
+windows
+$  java -jar ../../xpatch.jar ../../source.apk -xm ../../module1.apk;../../module2.apk
+```
+
 **注意：**
 1. 多个Xposed modules使用`:`(mac)/`;`(win)分割;
 2. 假如此module既被打包到apk中，又安装在设备上，则只会加载打包到apk中的module，不会加载安装的。
@@ -113,7 +113,7 @@ liubaoyua.customtext#文本自定义
 
 需要禁用某个插件，只需要修改此文件，在该插件包名前面增加一个`#`号即可。
 
-比如，需要禁用`畅玩微信`和`文本自定义`两个插件，只需要修改该文本文件，增加两个`#`号即可：
+比如，需要禁用`畅玩微信`和`文本自定义`两个插件，只需要修改该文本文件，增加一个`#`号即可：
 
 ```
 com.blanke.mdwechat#MDWechat
@@ -134,8 +134,7 @@ It's so easy !!!
 
 ## 可用的Xposed模块示例
 
- - [畅玩微信][6]
- - [微信巫师][7]
+ - [腾讯视频，爱奇艺去广告插件-RemoveVideoAdsPlugin](https://github.com/WindySha/RemoveVideoAdsPlugin)
  - [MDWechat][8]
  - [文本自定义][9]
  - ...
@@ -176,10 +175,6 @@ Xpatch是基于apk二次打包实现的，而且使用到了dex2Jar工具，因�
 3. hook框架使用的是lody的[Whale框架][5]，此框架存在一些不稳定性，对少数方法的hook会导致崩溃，并且在某些机型上hook也会崩溃。  
 4. Xposed Hook框架暂时不支持Dalvik虚拟机。  
 5. 暂时不支持Xposed插件中的资源Hook。
-
-## 支持我
-  如果Xpatch对你有点帮助，欢迎Star, Fork or Donate。  
- ![](https://upload-images.jianshu.io/upload_images/1639238-04130f58272eb505.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/200)
  
 ## Technology Discussion
 **QQ Group: 977513757**  
@@ -192,8 +187,9 @@ or
  - [whale][11]
  - [dex2jar][12]
  - [AXMLPrinter2][13]
+ - [SandHook](https://github.com/ganyao114/SandHook)
 
-  [1]: https://github.com/WindySha/Xpatch/releases/download/v1.3/xpatch-1.3.zip
+  [1]: https://github.com/WindySha/Xpatch/releases/download/v2.0/xpatch-2.0.jar.zip
   [2]: https://github.com/WindySha/Xpatch/releases
   [3]: https://ibotpeaches.github.io/Apktool/install/
   [5]: https://github.com/asLody/whale
