@@ -9,7 +9,7 @@
 !
 
 # 声明反编译软件版本
-apktool="bin/apktool/apktool_2.3.4.jar"
+apktool="bin/apktool/apktool_2.4.0.jar"
 ShakaApktool="bin/ShakaApktool/ShakaApktool_3.0.0.jar"
 
 # 1.动态调整文件名称

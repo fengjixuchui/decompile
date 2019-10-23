@@ -39,7 +39,7 @@ progdir=`pwd`
 prog="${progdir}"/`basename "${prog}"`
 cd "${oldwd}"
 
-jarfile=apktool_2.3.4.jar
+jarfile=apktool_2.4.0.jar
 libdir="$progdir"
 if [ ! -r "$libdir/$jarfile" ]
 then
@@ -52,7 +52,7 @@ javaOpts=""
 # If you want DX to have more memory when executing, uncomment the following
 # line and adjust the value accordingly. Use "java -X" for a list of options
 # you can pass here.
-# 
+#
 javaOpts="-Xmx512M -Dfile.encoding=utf-8"
 
 # Alternatively, this will extract any parameter "-Jxxx" from the command line
@@ -66,9 +66,9 @@ while expr "x$1" : 'x-J' >/dev/null; do
 done
 
 if [ "$OSTYPE" = "cygwin" ] ; then
-	jarpath=`cygpath -w  "$libdir/$jarfile"`
+    jarpath=`cygpath -w  "$libdir/$jarfile"`
 else
-	jarpath="$libdir/$jarfile"
+    jarpath="$libdir/$jarfile"
 fi
 
 # add current location to path for aapt
