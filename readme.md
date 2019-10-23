@@ -91,17 +91,4 @@ https://github.com/DrizzleRisk/BUnpacker
 整理文档地址
 https://crifan.github.io/android_app_security_crack/website/android_crack_tool/other_crack_tool/
 
-## 搜索是否集成Eguan SAAS SDK
-
-0. 反编译后的文件夹下
-
-``` bash
-# 单独搜索结果
-grep -rns "initEguan" .
-
-# 下面指令是有色彩的严格匹配
-grep --color=auto -rnsw "initEguan" .
-```
-
-1. 查看非eguan包名的文件。是否正确集成
 
