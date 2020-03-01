@@ -1,0 +1,155 @@
+<dex-project version="0.8">
+   <tasks class="java.util.ArrayList">
+      <task-item name="Documentation" active="true">
+         <task class="com.dexvis.dex.task.utilities.Documentation">
+            
+            <editor>&lt;html dir=&quot;ltr&quot;&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;h1&gt;&lt;font face=&quot;Segoe UI&quot; size=&quot;6&quot;&gt;Motion Bar Chart&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;&lt;font face=&quot;Segoe UI&quot;&gt;This demo showcases the motion bar chart as well as a few other interesting aspects of Dex such as:&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;ol&gt;&lt;li&gt;&lt;font face=&quot;Segoe UI&quot;&gt;The ability to document a flow as you see here&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font face=&quot;Segoe UI&quot;&gt;The ability to read in CSV data into an in-memory table.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font face=&quot;Segoe UI&quot;&gt;The ability to query this data in different ways to feed multiple charts.&lt;/font&gt;&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;font face=&quot;Segoe UI&quot;&gt;The motion bar chart expects a table of at least 4 columns. &amp;nbsp;Any columns after the 3rd is ignored.&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;ul&gt;&lt;li&gt;&lt;font face=&quot;Segoe UI&quot;&gt;COLUMN 1 : The category (categorical)&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font face=&quot;Segoe UI&quot;&gt;COLUMN 2 : The x axis value. &amp;nbsp;(quantitative, with 1 entry per categorical entry)&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font face=&quot;Segoe UI&quot;&gt;COLUMN 3 : The y axis value (quantitative)&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</editor>
+            <docFileText></docFileText>
+         </task>
+      </task-item>
+      <task-item name="Read CSV" active="true">
+         <task class="com.dexvis.dex.task.input.ReadCsv">
+            
+            <fileText>data\BirthsAndDeaths.csv</fileText>
+            <limitRows>false</limitRows>
+            <rowLimitText>0</rowLimitText>
+            <lastDir>C:\dex2ws\Dex\data</lastDir>
+         </task>
+      </task-item>
+      <task-item name="Create Jdbc Table" active="true">
+         <task class="com.dexvis.dex.task.database.CreateJdbcTable">
+            
+            <dbtype>&lt;map&gt;
+  &lt;entry&gt;
+    &lt;string&gt;items&lt;/string&gt;
+    &lt;list&gt;
+      &lt;string&gt;Oracle&lt;/string&gt;
+      &lt;string&gt;MySql&lt;/string&gt;
+      &lt;string&gt;Sqlite&lt;/string&gt;
+      &lt;string&gt;Neo4J&lt;/string&gt;
+      &lt;string&gt;HyperSql&lt;/string&gt;
+      &lt;string&gt;Other&lt;/string&gt;
+    &lt;/list&gt;
+  &lt;/entry&gt;
+  &lt;entry&gt;
+    &lt;string&gt;selected&lt;/string&gt;
+    &lt;string&gt;HyperSql&lt;/string&gt;
+  &lt;/entry&gt;
+&lt;/map&gt;</dbtype>
+            <driver>org.hsqldb.jdbc.JDBCDriver</driver>
+            <url>jdbc:hsqldb:mem:csvdb</url>
+            <password></password>
+            <username>sa</username>
+            <table>CSV</table>
+            <batch>false</batch>
+            <right_sizing>false</right_sizing>
+            <strict>false</strict>
+            <string_min>16</string_min>
+            <string_max>256</string_max>
+         </task>
+      </task-item>
+      <task-item name="Query Jdbc" active="true">
+         <task class="com.dexvis.dex.task.database.QueryJdbc">
+            
+            <sqlScript class="javafx.beans.property.SimpleStringProperty">SELECT COUNTRYABBREVIATION, YEAR, POPULATION FROM CSV;</sqlScript>
+            <dbtype>&lt;map&gt;
+  &lt;entry&gt;
+    &lt;string&gt;items&lt;/string&gt;
+    &lt;list&gt;
+      &lt;string&gt;HyperSql&lt;/string&gt;
+      &lt;string&gt;Oracle&lt;/string&gt;
+      &lt;string&gt;MySql&lt;/string&gt;
+      &lt;string&gt;Sqlite&lt;/string&gt;
+    &lt;/list&gt;
+  &lt;/entry&gt;
+  &lt;entry&gt;
+    &lt;string&gt;selected&lt;/string&gt;
+    &lt;string&gt;HyperSql&lt;/string&gt;
+  &lt;/entry&gt;
+&lt;/map&gt;</dbtype>
+            <driver>org.hsqldb.jdbc.JDBCDriver</driver>
+            <url>jdbc:hsqldb:mem:csvdb</url>
+            <password></password>
+            <username>sa</username>
+         </task>
+      </task-item>
+      <task-item name="View Data" active="true">
+         <task class="com.dexvis.dex.task.utilities.ViewData">
+            
+         </task>
+      </task-item>
+      <task-item name="Motion Bar Chart" active="true">
+         <task class="com.dexvis.dex.task.vis.dexjs.MotionBarChart">
+         </task>
+      </task-item>
+      <task-item name="Query Jdbc" active="true">
+         <task class="com.dexvis.dex.task.database.QueryJdbc">
+            
+            <sqlScript class="javafx.beans.property.SimpleStringProperty">SELECT COUNTRYABBREVIATION, YEAR, BIRTHSPER1000PEOPLE FROM CSV;</sqlScript>
+            <dbtype>&lt;map&gt;
+  &lt;entry&gt;
+    &lt;string&gt;items&lt;/string&gt;
+    &lt;list&gt;
+      &lt;string&gt;HyperSql&lt;/string&gt;
+      &lt;string&gt;Oracle&lt;/string&gt;
+      &lt;string&gt;MySql&lt;/string&gt;
+      &lt;string&gt;Sqlite&lt;/string&gt;
+    &lt;/list&gt;
+  &lt;/entry&gt;
+  &lt;entry&gt;
+    &lt;string&gt;selected&lt;/string&gt;
+    &lt;string&gt;HyperSql&lt;/string&gt;
+  &lt;/entry&gt;
+&lt;/map&gt;</dbtype>
+            <driver>org.hsqldb.jdbc.JDBCDriver</driver>
+            <url>jdbc:hsqldb:mem:csvdb</url>
+            <password></password>
+            <username>sa</username>
+         </task>
+      </task-item>
+      <task-item name="View Data" active="true">
+         <task class="com.dexvis.dex.task.utilities.ViewData">
+            
+         </task>
+      </task-item>
+      <task-item name="Motion Bar Chart" active="true">
+         <task class="com.dexvis.dex.task.vis.dexjs.MotionBarChart">
+
+         </task>
+      </task-item>
+      <task-item name="Query Jdbc" active="true">
+         <task class="com.dexvis.dex.task.database.QueryJdbc">
+            
+            <sqlScript class="javafx.beans.property.SimpleStringProperty">SELECT COUNTRYABBREVIATION, YEAR, DEATHSPER1000PEOPLE FROM CSV;</sqlScript>
+            <dbtype>&lt;map&gt;
+  &lt;entry&gt;
+    &lt;string&gt;items&lt;/string&gt;
+    &lt;list&gt;
+      &lt;string&gt;HyperSql&lt;/string&gt;
+      &lt;string&gt;Oracle&lt;/string&gt;
+      &lt;string&gt;MySql&lt;/string&gt;
+      &lt;string&gt;Sqlite&lt;/string&gt;
+    &lt;/list&gt;
+  &lt;/entry&gt;
+  &lt;entry&gt;
+    &lt;string&gt;selected&lt;/string&gt;
+    &lt;string&gt;HyperSql&lt;/string&gt;
+  &lt;/entry&gt;
+&lt;/map&gt;</dbtype>
+            <driver>org.hsqldb.jdbc.JDBCDriver</driver>
+            <url>jdbc:hsqldb:mem:csvdb</url>
+            <password></password>
+            <username>sa</username>
+         </task>
+      </task-item>
+      <task-item name="View Data" active="true">
+         <task class="com.dexvis.dex.task.utilities.ViewData">
+            
+         </task>
+      </task-item>
+      <task-item name="Motion Bar Chart" active="true">
+         <task class="com.dexvis.dex.task.vis.dexjs.MotionBarChart">
+         </task>
+      </task-item>
+   </tasks>
+</dex-project>

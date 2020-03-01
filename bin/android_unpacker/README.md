@@ -3,12 +3,21 @@
 A (hopefully) generic unpacker for packed Android apps.
 
 ##### How does it work?
+<<<<<<< HEAD
 The tool is a patched version of AOSP with some additional scripts.
 The scripts executes the emulator and installs the APK. Following execution, it
 dumps the unpacked version of the DEX using different hooks. The result is two
 files, one of them should be the real dumped version of the DEX file, depending
 on how the targeted packer works.
 
+=======
+The tool is a patched version of AOSP with some additional scripts.
+The scripts executes the emulator and installs the APK. Following execution, it
+dumps the unpacked version of the DEX using different hooks. The result is two
+files, one of them should be the real dumped version of the DEX file, depending
+on how the targeted packer works.
+
+>>>>>>> f7ff1d4dc055222be3faba7b5fdd740eb9b37b8f
 Presented in DEF CON 25 (2017) by:
 * Slava Makkaveev
 * Avi Bashan

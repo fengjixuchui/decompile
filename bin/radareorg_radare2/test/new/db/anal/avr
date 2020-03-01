@@ -576,10 +576,17 @@ EXPECT=<<EOF
 0x00000010      0c94db00       jmp 0x1b6
 EOF
 CMDS=<<EOF
+<<<<<<< HEAD
 e asm.arch=avr
 e asm.lines=false
 aar
 pd 4 @ 4
+=======
+e asm.arch=avr
+e asm.lines=false
+aar
+pd 4 @ 4
+>>>>>>> f7ff1d4dc055222be3faba7b5fdd740eb9b37b8f
 EOF
 RUN
 

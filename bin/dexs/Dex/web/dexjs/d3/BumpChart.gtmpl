@@ -1,0 +1,17 @@
+<%
+import static com.dexvis.util.GroovyUtil.renderTemplate as render;
+
+println render("web/include/dexjs.inc", [
+      "state"    : state,
+      "dexData"  : dexData,
+      "data"     : data,
+      "header"   : header,
+      "basedir"  : basedir,
+      "options"   : options,
+      "context"  : [
+        "title"  : "dex.js : Bump Chart",
+        "chart"  : "dex.charts.d3.BumpChart",
+        "type"   : "bumpchart"
+      ]
+    ])
+%>

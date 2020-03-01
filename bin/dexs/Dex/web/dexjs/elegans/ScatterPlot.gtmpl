@@ -1,0 +1,21 @@
+<%
+import static com.dexvis.util.GroovyUtil.renderTemplate as render;
+
+println render("web/include/dexjs.inc", [
+      "state"     : state,
+      "dexData"   : dexData,
+      "data"      : data,
+      "header"    : header,
+      "basedir"   : basedir,
+      "options"  : options,
+      "context"   : [
+        "title"   : "dex.js : Elegans ScatterPlot",
+        "chart"   : "dex.charts.elegans.ScatterPlot",
+        "type"    : "scatterplot",
+        "scripts" : [
+          "javascript/three/latest/three.min.js",
+          "javascript/elegans/latest/elegans.min.js"
+        ]
+      ]
+    ])
+%>

@@ -1,0 +1,20 @@
+<%
+import static com.dexvis.util.GroovyUtil.renderTemplate as render;
+
+println render("web/include/dexjs_combo.inc", [
+      "state"     : state,
+      "dexData"   : dexData,
+      "data"      : data,
+      "header"    : header,
+      "basedir"   : basedir,
+      "options"   : options,
+      "context"   : [
+        "title"   : "dex.js : Parallel Coordinates -> Chord Diagram",
+        "charts"   : [
+          "dex.charts.d3.ParallelCoordinates",
+          "dex.charts.d3.Chord"
+        ],
+        "types"    : [ "pc", "chord" ]
+      ]
+    ])
+%>

@@ -1,0 +1,19 @@
+<%
+import static com.dexvis.util.GroovyUtil.renderTemplate as render;
+
+println render("web/include/dexjs.inc", [
+      "state"     : state,
+      "dexData"   : dexData,
+      "data"      : data,
+      "header"    : header,
+      "basedir"   : basedir,
+      "options"   : options,
+      "context"   : [
+        "title"   : "dex.js : C3 ScatterPlot",
+        "chart"   : "dex.charts.c3.ScatterPlot",
+        "type"    : "c3scatterplot",
+        "styles"  : [ "javascript/c3/latest/c3.min.css" ],
+        "scripts" : [ "javascript/c3/latest/c3.min.js" ]
+      ]
+    ])
+%>
