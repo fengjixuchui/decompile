@@ -24,6 +24,7 @@
 #define _DEX_H_
 
 #include <zlib.h>
+
 #include "common.h"
 #include "dex_instruction.h"
 #include "dex_modifiers.h"
@@ -136,9 +137,13 @@ typedef struct __attribute__((packed)) {
   u4 ownedDataEnd;
 } cdexHeader;
 
-typedef struct __attribute__((packed)) { u4 stringDataOff; } dexStringId;
+typedef struct __attribute__((packed)) {
+  u4 stringDataOff;
+} dexStringId;
 
-typedef struct __attribute__((packed)) { u4 descriptorIdx; } dexTypeId;
+typedef struct __attribute__((packed)) {
+  u4 descriptorIdx;
+} dexTypeId;
 
 typedef struct __attribute__((packed)) {
   u2 classIdx;
@@ -169,7 +174,9 @@ typedef struct __attribute__((packed)) {
   u4 staticValuesOff;
 } dexClassDef;
 
-typedef struct __attribute__((packed)) { u2 typeIdx; } dexTypeItem;
+typedef struct __attribute__((packed)) {
+  u2 typeIdx;
+} dexTypeItem;
 
 typedef struct __attribute__((packed)) {
   u4 size;
@@ -221,7 +228,7 @@ typedef struct __attribute__((packed, aligned(2))) {
   // followed by try_item[triesSize]
   // followed by uleb128 handlersSize
   // followed by catch_handler_item[handlersSize]
-  } cdexCode;
+} cdexCode;
 
 typedef struct __attribute__((packed)) {
   u4 start_addr_;
@@ -229,7 +236,9 @@ typedef struct __attribute__((packed)) {
   u2 handler_off_;
 } dexTryItem;
 
-typedef struct __attribute__((packed)) { u1 bleargh; } dexLinkData;
+typedef struct __attribute__((packed)) {
+  u1 bleargh;
+} dexLinkData;
 
 typedef struct __attribute__((packed)) {
   int size;
@@ -353,7 +362,7 @@ void dex_readClassDataField(const u1 **, dexField *);
 void dex_readClassDataMethod(const u1 **, dexMethod *);
 
 // Methods to access Dex file primitive types
-const dexStringId *dex_getStringId(const u1 *, u2);
+const dexStringId *dex_getStringId(const u1 *, u4);
 const dexTypeId *dex_getTypeId(const u1 *, u2);
 const dexProtoId *dex_getProtoId(const u1 *, u2);
 const dexFieldId *dex_getFieldId(const u1 *, u4);
@@ -362,8 +371,8 @@ const dexClassDef *dex_getClassDef(const u1 *, u2);
 
 // Helper methods to extract data from Dex primitive types
 const char *dex_getStringDataAndUtf16Length(const u1 *, const dexStringId *, u4 *);
-const char *dex_getStringDataAndUtf16LengthByIdx(const u1 *, u2, u4 *);
-const char *dex_getStringDataByIdx(const u1 *, u2);
+const char *dex_getStringDataAndUtf16LengthByIdx(const u1 *, u4, u4 *);
+const char *dex_getStringDataByIdx(const u1 *, u4);
 const char *dex_getStringByTypeIdx(const u1 *, u2);
 const char *dex_getMethodSignature(const u1 *, const dexMethodId *);
 const char *dex_getProtoSignature(const u1 *, const dexProtoId *);

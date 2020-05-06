@@ -27,9 +27,9 @@
 #include "../dex.h"
 #include "vdex_common.h"
 
-static const u1 kVdexDepsVer[] = { '0', '1', '9', '\0' };
-static const u1 kVdexDexSectVer[] = { '0', '0', '2', '\0' };
-static const u1 kDexSectVerEmpty[] = { '0', '0', '0', '\0' };
+static const u1 kVdexDepsVer_019[] = { '0', '1', '9', '\0' };
+static const u1 kVdexDexSectVer_019[] = { '0', '0', '2', '\0' };
+static const u1 kDexSectVerEmpty_019[] = { '0', '0', '0', '\0' };
 
 typedef struct __attribute__((packed)) {
   u1 magic[4];
@@ -43,7 +43,7 @@ typedef struct __attribute__((packed)) {
   u4 dexSize;
   u4 dexSharedDataSize;
   u4 quickeningInfoSize;
-} DexSectHeader;
+} vdexDexSectHeader_019;
 
 // VDEX files contain extracted DEX files. The VdexFile class maps the file to
 // memory and provides tools for accessing its individual sections.
@@ -107,7 +107,9 @@ typedef struct __attribute__((packed)) {
   u4 declaringClassIdx;
 } vdexDepMethodRes_019;
 
-typedef struct __attribute__((packed)) { u2 typeIdx; } vdexDepUnvfyClass_019;
+typedef struct __attribute__((packed)) {
+  u2 typeIdx;
+} vdexDepUnvfyClass_019;
 
 typedef struct __attribute__((packed)) {
   u4 numberOfEntries;
@@ -147,7 +149,7 @@ void vdex_019_GetVerifierDeps(const u1 *, vdex_data_array_t *);
 void vdex_019_GetQuickeningInfo(const u1 *, vdex_data_array_t *);
 
 u4 vdex_019_GetDexSectionHeaderOffset(const u1 *);
-const DexSectHeader *vdex_019_GetDexSectionHeader(const u1 *);
+const vdexDexSectHeader_019 *vdex_019_GetDexSectionHeader(const u1 *);
 
 // Vdex 019 introduces an intermediate set of tables that contain the QuickeningInfo offsets for
 // each Dex file in the container

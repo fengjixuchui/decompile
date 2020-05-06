@@ -21,6 +21,7 @@
 */
 
 #include "vdex_019.h"
+
 #include "../out_writer.h"
 #include "../utils.h"
 #include "vdex_backend_019.h"
@@ -32,13 +33,16 @@ bool vdex_019_isMagicValid(const u1 *cursor) {
 
 bool vdex_019_IsVerifierDepsVersionValid(const u1 *cursor) {
   const vdexHeader_019 *pVdexHeader = (const vdexHeader_019 *)cursor;
-  return (memcmp(pVdexHeader->verifierDepsVersion, kVdexDepsVer, sizeof(kVdexDepsVer)) == 0);
+  return (memcmp(pVdexHeader->verifierDepsVersion, kVdexDepsVer_019, sizeof(kVdexDepsVer_019)) ==
+          0);
 }
 
 bool vdex_019_IsDexSectionVersionValid(const u1 *cursor) {
   const vdexHeader_019 *pVdexHeader = (const vdexHeader_019 *)cursor;
-  return (memcmp(pVdexHeader->dexSectionVersion, kVdexDexSectVer, sizeof(kVdexDexSectVer)) == 0) ||
-         (memcmp(pVdexHeader->dexSectionVersion, kDexSectVerEmpty, sizeof(kDexSectVerEmpty)) == 0);
+  return (memcmp(pVdexHeader->dexSectionVersion, kVdexDexSectVer_019,
+                 sizeof(kVdexDexSectVer_019)) == 0) ||
+         (memcmp(pVdexHeader->dexSectionVersion, kDexSectVerEmpty_019,
+                 sizeof(kDexSectVerEmpty_019)) == 0);
 }
 
 bool vdex_019_isValidVdex(const u1 *cursor) {
@@ -48,7 +52,8 @@ bool vdex_019_isValidVdex(const u1 *cursor) {
 
 bool vdex_019_hasDexSection(const u1 *cursor) {
   const vdexHeader_019 *pVdexHeader = (const vdexHeader_019 *)cursor;
-  return (memcmp(pVdexHeader->dexSectionVersion, kVdexDexSectVer, sizeof(kVdexDexSectVer)) == 0);
+  return (memcmp(pVdexHeader->dexSectionVersion, kVdexDexSectVer_019,
+                 sizeof(kVdexDexSectVer_019)) == 0);
 }
 
 u4 vdex_019_GetSizeOfChecksumsSection(const u1 *cursor) {
@@ -60,30 +65,30 @@ u4 vdex_019_GetDexSectionHeaderOffset(const u1 *cursor) {
   return sizeof(vdexHeader_019) + vdex_019_GetSizeOfChecksumsSection(cursor);
 }
 
-const DexSectHeader *vdex_019_GetDexSectionHeader(const u1 *cursor) {
+const vdexDexSectHeader_019 *vdex_019_GetDexSectionHeader(const u1 *cursor) {
   CHECK(vdex_019_hasDexSection(cursor));
-  return (DexSectHeader *)(cursor + vdex_019_GetDexSectionHeaderOffset(cursor));
+  return (vdexDexSectHeader_019 *)(cursor + vdex_019_GetDexSectionHeaderOffset(cursor));
 }
 
 const u1 *vdex_019_DexBegin(const u1 *cursor) {
   CHECK(vdex_019_hasDexSection(cursor));
-  return cursor + vdex_019_GetDexSectionHeaderOffset(cursor) + sizeof(DexSectHeader);
+  return cursor + vdex_019_GetDexSectionHeaderOffset(cursor) + sizeof(vdexDexSectHeader_019);
 }
 
 u4 vdex_019_DexBeginOffset(const u1 *cursor) {
   CHECK(vdex_019_hasDexSection(cursor));
-  return vdex_019_GetDexSectionHeaderOffset(cursor) + sizeof(DexSectHeader);
+  return vdex_019_GetDexSectionHeaderOffset(cursor) + sizeof(vdexDexSectHeader_019);
 }
 
 const u1 *vdex_019_DexEnd(const u1 *cursor) {
   CHECK(vdex_019_hasDexSection(cursor));
-  const DexSectHeader *pDexSectHeader = vdex_019_GetDexSectionHeader(cursor);
+  const vdexDexSectHeader_019 *pDexSectHeader = vdex_019_GetDexSectionHeader(cursor);
   return vdex_019_DexBegin(cursor) + pDexSectHeader->dexSize;
 }
 
 u4 vdex_019_DexEndOffset(const u1 *cursor) {
   CHECK(vdex_019_hasDexSection(cursor));
-  const DexSectHeader *pDexSectHeader = vdex_019_GetDexSectionHeader(cursor);
+  const vdexDexSectHeader_019 *pDexSectHeader = vdex_019_GetDexSectionHeader(cursor);
   return vdex_019_DexBeginOffset(cursor) + pDexSectHeader->dexSize;
 }
 
@@ -105,8 +110,8 @@ u4 vdex_019_GetVerifierDepsStartOffset(const u1 *cursor) {
   u4 result = vdex_019_GetDexSectionHeaderOffset(cursor);
   if (vdex_019_hasDexSection(cursor)) {
     // When there is a dex section, the verifier deps are after it, but before the quickening.
-    const DexSectHeader *pDexSectHeader = vdex_019_GetDexSectionHeader(cursor);
-    return result + sizeof(DexSectHeader) + pDexSectHeader->dexSize +
+    const vdexDexSectHeader_019 *pDexSectHeader = vdex_019_GetDexSectionHeader(cursor);
+    return result + sizeof(vdexDexSectHeader_019) + pDexSectHeader->dexSize +
            pDexSectHeader->dexSharedDataSize;
   } else {
     // When there is no dex section, the verifier deps are just after the header.
@@ -127,7 +132,7 @@ void vdex_019_GetQuickeningInfo(const u1 *cursor, vdex_data_array_t *pQuickInfo)
     vdex_019_GetVerifierDeps(cursor, &vDeps);
     pQuickInfo->data = vDeps.data + vDeps.size;
     pQuickInfo->offset = vDeps.offset + vDeps.size;
-    const DexSectHeader *pDexSectHeader = vdex_019_GetDexSectionHeader(cursor);
+    const vdexDexSectHeader_019 *pDexSectHeader = vdex_019_GetDexSectionHeader(cursor);
     pQuickInfo->size = pDexSectHeader->quickeningInfoSize;
   } else {
     pQuickInfo->data = NULL;
@@ -170,7 +175,7 @@ void vdex_019_dumpHeaderInfo(const u1 *cursor) {
   LOGMSG_RAW(l_DEBUG, "quickening info offset        : %" PRIx32 " (%" PRIu32 ")\n",
              quickInfo.offset, quickInfo.offset);
   if (vdex_019_hasDexSection(cursor)) {
-    const DexSectHeader *pDexSectHeader = vdex_019_GetDexSectionHeader(cursor);
+    const vdexDexSectHeader_019 *pDexSectHeader = vdex_019_GetDexSectionHeader(cursor);
     LOGMSG_RAW(l_DEBUG, "dex section header offset     : %" PRIx32 " (%" PRIu32 ")\n",
                vdex_019_GetDexSectionHeaderOffset(cursor),
                vdex_019_GetDexSectionHeaderOffset(cursor));
@@ -241,8 +246,9 @@ bool vdex_019_SanityCheck(const u1 *cursor, size_t bufSz) {
   vdex_data_array_t vDeps;
   vdex_019_GetVerifierDeps(cursor, &vDeps);
   if (vDeps.offset && vDeps.size && ((vDeps.offset + 7) > bufSz)) {
-    LOGMSG(l_ERROR, "Verifier dependencies section points past the end of file (%" PRIx32
-                    " + %" PRIx32 " > %" PRIx32 ")",
+    LOGMSG(l_ERROR,
+           "Verifier dependencies section points past the end of file (%" PRIx32 " + %" PRIx32
+           " > %" PRIx32 ")",
            vDeps.offset, vDeps.size, bufSz);
     return false;
   }
@@ -251,8 +257,9 @@ bool vdex_019_SanityCheck(const u1 *cursor, size_t bufSz) {
   vdex_data_array_t quickInfo;
   vdex_019_GetQuickeningInfo(cursor, &quickInfo);
   if (quickInfo.size && ((quickInfo.offset + quickInfo.size) > bufSz)) {
-    LOGMSG(l_ERROR, "Quickening info section points past the end of file (%" PRIx32 " + %" PRIx32
-                    " > %" PRIx32 ")",
+    LOGMSG(l_ERROR,
+           "Quickening info section points past the end of file (%" PRIx32 " + %" PRIx32
+           " > %" PRIx32 ")",
            quickInfo.offset, quickInfo.size, bufSz);
     return false;
   }
