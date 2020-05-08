@@ -39,7 +39,7 @@ progdir=`pwd`
 prog="${progdir}"/`basename "${prog}"`
 cd "${oldwd}"
 
-jarfile=apktool_2.4.0.jar
+jarfile=apktool_2.4.1.jar
 libdir="$progdir"
 if [ ! -r "$libdir/$jarfile" ]
 then
@@ -52,8 +52,8 @@ javaOpts=""
 # If you want DX to have more memory when executing, uncomment the following
 # line and adjust the value accordingly. Use "java -X" for a list of options
 # you can pass here.
-#
-javaOpts="-Xmx512M -Dfile.encoding=utf-8"
+# 
+javaOpts="-Xmx1024M -Dfile.encoding=utf-8"
 
 # Alternatively, this will extract any parameter "-Jxxx" from the command line
 # and pass them to Java (instead of to dx). This makes it possible for you to

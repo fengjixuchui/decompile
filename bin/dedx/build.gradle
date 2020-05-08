@@ -1,0 +1,104 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.50'
+    id 'groovy'
+    id 'application'
+    id 'distribution'
+}
+
+apply plugin: com.github.dedx.DepInjectPlugin
+
+version = file('version').readLines().get(0)
+sourceCompatibility = 1.8
+
+repositories {
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    maven { url 'https://maven.aliyun.com/repository/google' }
+    jcenter { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+}
+
+configurations {
+    ktlint
+}
+
+dependencies {
+    compile files('lib/dx.jar')
+    compile group: 'org.ow2.asm', name: 'asm', version: '7.1'
+    compile group: 'org.ow2.asm', name: 'asm-util', version: '7.1'
+    compile group: 'org.ow2.asm', name: 'asm-analysis', version: '7.1'
+    compile group: 'org.ow2.asm', name: 'asm-commons', version: '7.1'
+    compile group: 'commons-cli', name: 'commons-cli', version: '1.4'
+    compile group: 'com.google.flogger', name: 'flogger', version: '0.4'
+    runtime group: 'com.google.flogger', name: 'flogger-system-backend', version: '0.4'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile localGroovy()
+
+    ktlint "com.pinterest:ktlint:0.36.0"
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+}
+
+jar {
+    manifest {
+        attributes('dedx-version': version)
+    }
+    exclude('com/dedx/test')
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+compileGroovy {
+    dependsOn tasks.getByPath('compileKotlin')
+    classpath += files(compileKotlin.destinationDir)
+}
+
+task runTest(type: JavaExec) {
+    description "Run Groovy Script"
+    main = 'com.dedx.test.ScriptMain'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs += "-noverify" // avoid: Expecting a stackmap frame
+    args "${project.rootDir}/resource"
+}
+
+application {
+    mainClassName = 'com.dedx.tools.MainKt'
+}
+
+def outputDir = "${project.buildDir}/reports/ktlint/"
+def outputFile = "${outputDir}ktlint-checkstyle-report.xml"
+
+task ktlint(type: JavaExec, group: "verification") {
+    group = "verification"
+    description = "Runs ktlint."
+    main = "com.pinterest.ktlint.Main"
+    classpath = project.configurations.ktlint
+    args = [
+            "--reporter=plain",
+            "--reporter=checkstyle,output=${outputFile}",
+            "src/main/**/*.kt"
+    ]
+}
+check.dependsOn ktlint
+
+task ktlineFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args = ["--reporter=plain",
+            "--reporter=checkstyle,output=${outputFile}",
+            "-F",
+            "src/main/**/*.kt"
+    ]
+}

@@ -1,0 +1,26 @@
+<%
+import static com.dexvis.util.GroovyUtil.renderTemplate as render;
+
+println render("web/include/dexjs_multiples.inc", [
+      "state"     : state,
+      "dexData"   : dexData,
+      "data"      : data,
+      "header"    : header,
+      "basedir"   : basedir,
+      "options"   : options,
+      "context"   : [
+        "title"   : "dex.js : C3 Stacked Area Chart Multiples",
+        "chartConstructor" : "dex.charts.c3.StackedAreaChart",
+        "config" : [
+          "cell": [ "height": 300, "width": 300 ],
+          "model" : [
+            "attributes": [
+              "margin": [ "top": 4, "bottom": 4, "right": 4, "left": 4 ]
+            ]
+          ]
+        ],
+        "styles"  : [ "javascript/c3/latest/c3.min.css" ],
+        "scripts" : [ "javascript/c3/latest/c3.min.js" ]
+      ]
+    ])
+%>

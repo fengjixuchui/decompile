@@ -1,0 +1,25 @@
+<%
+import static com.dexvis.util.GroovyUtil.renderTemplate as render;
+
+println render("web/include/dexjs_multiples.inc", [
+      "state"     : state,
+      "dexData"   : dexData,
+      "data"      : data,
+      "header"    : header,
+      "basedir"   : basedir,
+      "options"   : options,
+      "context"   : [
+        "title"   : "dex.js : Icicle Chart Multiples",
+        "chartConstructor" : "dex.charts.d3.IcicleChart",
+        "config" : [
+          "cell": [ "height": 300, "width": 300 ],
+          "model" : [
+            "attributes": [
+              "margin": [ "top": 4, "bottom": 4, "right": 4, "left": 4 ]
+            ]
+          ]
+        ],
+        "scripts" : [ ]
+      ]
+    ])
+%>

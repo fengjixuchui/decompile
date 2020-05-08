@@ -1,0 +1,22 @@
+<%
+import static com.dexvis.util.GroovyUtil.renderTemplate as render;
+
+println render("web/include/dexjs_combo.inc", [
+      "state"     : state,
+      "dexData"   : dexData,
+      "data"      : data,
+      "header"    : header,
+      "basedir"   : basedir,
+      "options"   : options,
+      "context"   : [
+        "title"   : "dex.js : Parallel Coordinates -> Vis.js Network",
+        "charts"   : [
+          "dex.charts.d3.ParallelCoordinates",
+          "dex.charts.vis.Network"
+        ],
+        "types"    : [ "pc", "visjsnetwork" ],
+        "styles"  : [ "javascript/vis/latest/vis.css" ],
+        "scripts" : [ "javascript/vis/latest/vis.js" ]
+      ]
+    ])
+%>

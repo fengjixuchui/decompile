@@ -92,3 +92,5 @@ https://github.com/DrizzleRisk/BUnpacker
 https://crifan.github.io/android_app_security_crack/website/android_crack_tool/other_crack_tool/
 
 
+convert dex to java class/jar by dx and asm
+https://github.com/penguin-wwy/dedx

@@ -1,0 +1,73 @@
+<%
+import static com.dexvis.util.GroovyUtil.renderTemplate as render;
+
+println render("web/include/dexjs_combo.inc", [
+      "state"     : state,
+      "dexData"   : dexData,
+      "data"      : data,
+      "header"    : header,
+      "basedir"   : basedir,
+      "options"   : options,
+      "context"   : [
+        "title"   : "dex.js : Parallel Coordinates -> Vis.js Network",
+        "charts"   : [
+          "dex.charts.d3.ParallelCoordinates",
+          "dex.charts.vis.Network"
+        ],
+        "types"    : [ "pc", "visjsnetwork" ],
+        "styles"  : [ "javascript/vis/latest/vis.css" ],
+        "scripts" : [ "javascript/vis/latest/vis.js" ]
+      ]
+    ])
+%>
+
+  println new File("javascript/sql/latest/js/sql.js").text
+  println new File("javascript/dexjs/latest/dex.js").text
+%>
+</script>
+<svg id="PCArea"></svg>
+<div id="QueryArea">
+<form id="query-form" action="javascript:runQuery" onsubmit="runQuery(this);">
+  <textarea rows="4" cols="50" name="query" form="query-form">select * from dex;</textarea><br>
+  <input type="submit" value="Execute">
+</form>
+</div>
+<script>
+<%
+  def header = "[" + dexData.header.collect { return "\"$it\"" }.join(',') + "]"
+  def data = []
+  dexData.data.eachWithIndex
+  {
+    row, ri ->
+    data << "[" + row.collect { return "\"$it\"" }.join(',') + "]"
+  }
+  println "var csv = { 'header' : $header,\n 'data' : [" + data.join(',\n') + "] };";
+%>
+
+  // Configure a chart.
+  var query = new dex.ui.SqlQuery({
+    'parent' : '#SqlQueryArea',
+    'csv'    : csv
+  });
+
+  // Configure a chart.
+  var pcChart = new dex.charts.d3.ParallelCoordinates({
+    'parent' : '#PCArea',
+    'csv'    : csv
+  });
+
+  query.render();
+  pcChart.render();
+
+  function runQuery(form) {
+    console.log("Running Query: " + form.query.value);
+    var csvResults = query.query(form.query.value);
+    console.log("Query Results: " + csvResults);
+    console.dir(csvResults);
+    pcChart.attr("csv", csvResults).update();
+  }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<dex-project version="0.8">
+   <tasks class="java.util.ArrayList">
+      <task-item name="Documentation" active="true">
+         <task class="com.dexvis.dex.task.utilities.Documentation">
+            <editor>&lt;html dir=&quot;ltr&quot;&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;h1&gt;&lt;font face=&quot;Segoe UI&quot; size=&quot;6&quot;&gt;ETL : Data Cleansing&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;&lt;font face=&quot;Segoe UI&quot; size=&quot;4&quot;&gt;This example demonstrates some basic data cleansing capabilities in Dex. &amp;nbsp;We start with an imperfect source of data named &quot;presidents.csv&quot;. &amp;nbsp;This dataset is pretty well formatted, however, in some entries there are leading and preceding whitespace. &amp;nbsp;In other entries, some additional annotations such as &quot;Grover Cleveland (2nd term)&quot;.&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font face=&quot;Segoe UI&quot; size=&quot;4&quot;&gt;In the demo, we visualize the data in a dendrogram as-is, then later after cleansing to illustrate the significant difference that a few cleansing operations can make on even a relatively clean dataset such as this one.&lt;/font&gt;&lt;/p&gt;&lt;h2&gt;&lt;font face=&quot;Segoe UI&quot; size=&quot;5&quot;&gt;Task Overview&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;&lt;/p&gt;&lt;ol&gt;&lt;li&gt;&lt;font face=&quot;Segoe UI&quot;&gt;&lt;b&gt;Documentation&lt;/b&gt;&amp;nbsp;- This task, which documents the flow.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;b style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;Read CSV&lt;/b&gt;&lt;span style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;&amp;nbsp;- Read in our dataset.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;b style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;Select Columns&lt;/b&gt;&lt;span style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;&amp;nbsp;- We order the data in a way which reveals its structure in a dendrogram best.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;b style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;Dendrogram&lt;/b&gt;&lt;span style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;&amp;nbsp;- Visualize the data as-is for a baseline.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;b style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;Describe Data&lt;/b&gt;&lt;span style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;&amp;nbsp;- Describe the data as-is for a baseline..&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;&lt;b&gt;Trim Columns&lt;/b&gt;&amp;nbsp;- Trim whitespace from beginning and ends ot the data.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;&lt;b&gt;View Data&lt;/b&gt; - A visual checkpoint.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;&lt;b&gt;Describe Data&lt;/b&gt; - Describe the data after having trimmed it. &amp;nbsp;Here we&apos;ll see that the number of distinct parties was reduced from 12 to 9.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;&lt;b&gt;Replace All&lt;/b&gt; - This task, removes any annotations.&amp;nbsp;&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;b style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;Describe Data&lt;/b&gt;&lt;span style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;&amp;nbsp;- Describe the data after the transformations. &amp;nbsp;Here we&apos;ll see that we now have 43 distinct presidents instead of the previous 44.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;b style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;View Data&lt;/b&gt;&lt;span style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;&amp;nbsp;- View the data.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;b style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;Dendrogram&lt;/b&gt;&lt;span style=&quot;font-family: &apos;Segoe UI&apos;;&quot;&gt;&amp;nbsp;- Visualize the transformed data. &amp;nbsp;Select the previous dendrogram and compare them. &amp;nbsp;You can view multiple task by selecting one, then Ctrl-Selecting the 2nd, 3rd and so on. &amp;nbsp;Shift-Select can also be used.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</editor>
+            <docFileText></docFileText>
+         </task>
+      </task-item>
+      <task-item name="Read CSV" active="true">
+         <task class="com.dexvis.dex.task.input.ReadCsv">
+            <fileText>data\presidents.csv</fileText>
+            <limitRows>false</limitRows>
+            <rowLimitText>0</rowLimitText>
+            <lastDir>C:\dex2ws\Dex\data</lastDir>
+         </task>
+      </task-item>
+      <task-item name="Select Columns" active="true">
+         <task class="com.dexvis.dex.task.tablemanipulation.SelectColumns">
+            <columnList>&lt;com.dexvis.simple.types.SimpleListSelectionView&gt;
+  &lt;sourceList/&gt;
+  &lt;targetList&gt;
+    &lt;string&gt;Party&lt;/string&gt;
+    &lt;string&gt;Home State&lt;/string&gt;
+    &lt;string&gt;President&lt;/string&gt;
+    &lt;string&gt;Presidency&lt;/string&gt;
+  &lt;/targetList&gt;
+&lt;/com.dexvis.simple.types.SimpleListSelectionView&gt;</columnList>
+         </task>
+      </task-item>
+      <task-item name="Dendrogram" active="true">
+         <task class="com.dexvis.dex.task.vis.dexjs.Dendrogram">
+         </task>
+      </task-item>
+      <task-item name="Describe Data" active="true">
+         <task class="com.dexvis.dex.task.info.DescribeData">
+         </task>
+      </task-item>
+      <task-item name="Trim Columns" active="true">
+         <task class="com.dexvis.dex.task.tablemanipulation.TrimColumns">
+         </task>
+      </task-item>
+      <task-item name="View Data" active="true">
+         <task class="com.dexvis.dex.task.utilities.ViewData">
+         </task>
+      </task-item>
+      <task-item name="Describe Data" active="true">
+         <task class="com.dexvis.dex.task.info.DescribeData">
+         </task>
+      </task-item>
+      <task-item name="Replace All" active="true">
+         <task class="com.dexvis.dex.task.tablemanipulation.ReplaceAll">
+            <replace>\s\(.*</replace>
+            <with></with>
+         </task>
+      </task-item>
+      <task-item name="Describe Data" active="true">
+         <task class="com.dexvis.dex.task.info.DescribeData">
+         </task>
+      </task-item>
+      <task-item name="View Data" active="true">
+         <task class="com.dexvis.dex.task.utilities.ViewData">
+         </task>
+      </task-item>
+      <task-item name="Dendrogram" active="true">
+         <task class="com.dexvis.dex.task.vis.dexjs.Dendrogram">
+         </task>
+      </task-item>
+      <task-item name="Write CSV" active="true">
+         <task class="com.dexvis.dex.task.output.WriteCsv">
+            <outputFileText>data\presidents_cleansed.csv</outputFileText>
+            <lastDir>C:\dex2ws\Dex\data</lastDir>
+         </task>
+      </task-item>
+   </tasks>
+</dex-project>

@@ -1,0 +1,33 @@
+<dex-project version="0.8">
+   <tasks class="java.util.ArrayList">
+      <task-item name="Read CSV" active="true">
+         <task class="com.dexvis.dex.task.input.ReadCsv">
+            
+            <fileText>data\BirthsAndDeaths.csv</fileText>
+            <limitRows>false</limitRows>
+            <rowLimitText>0</rowLimitText>
+            <lastDir>C:\dex2ws\Dex\data</lastDir>
+         </task>
+      </task-item>
+      <task-item name="View Data" active="true">
+         <task class="com.dexvis.dex.task.utilities.ViewData">
+            
+         </task>
+      </task-item>
+      <task-item name="Blue Table" active="true">
+         <task class="com.dexvis.dex.task.vis.table.BlueTable">
+            
+         </task>
+      </task-item>
+      <task-item name="JQ Grid" active="true">
+         <task class="com.dexvis.dex.task.vis.table.Grid">
+            
+         </task>
+      </task-item>
+      <task-item name="Searchable Table" active="true">
+         <task class="com.dexvis.dex.task.vis.table.SearchableTable">
+            
+         </task>
+      </task-item>
+   </tasks>
+</dex-project>

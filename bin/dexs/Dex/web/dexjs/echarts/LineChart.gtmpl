@@ -1,0 +1,18 @@
+<%
+import static com.dexvis.util.GroovyUtil.renderTemplate as render;
+
+println render("web/include/dexjs.inc", [
+      "state"     : state,
+      "dexData"   : dexData,
+      "data"      : data,
+      "header"    : header,
+      "basedir"   : basedir,
+      "options"  : options,
+      "context"   : [
+        "title"   : "dex.js : ECharts Line Chart",
+        "chart"   : "dex.charts.echarts.LineChart",
+        "type"    : "echartslinechart",
+        "scripts" : [ "javascript/echarts/latest/echarts.min.js" ]
+      ]
+    ])
+%>
